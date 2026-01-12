@@ -1,0 +1,38 @@
+---
+// src/layouts/Layout.astro
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+		</head>
+	<body class="bg-[#faf9f6] text-[#333] antialiased">
+		<slot /> </body>
+</html>
+
+<style is:global>
+	/* Aquí puedes poner estilos globales como el scroll suave */
+	@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+    html {
+		scroll-behavior: smooth;
+	}
+    /* // <weight>: Use a value from 400 to 900
+    // <uniquifier>: Use a unique and descriptive class name */
+
+    .playfair-display-<uniquifier> {
+        font-family: "Playfair Display", serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+    }
+
+</style>
