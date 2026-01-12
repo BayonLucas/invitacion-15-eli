@@ -13,6 +13,7 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 		<title>{title}</title>
 		</head>
 	<body class="bg-[#faf9f6] text-[#333] antialiased">
@@ -25,14 +26,5 @@ const { title } = Astro.props;
     html {
 		scroll-behavior: smooth;
 	}
-    /* // <weight>: Use a value from 400 to 900
-    // <uniquifier>: Use a unique and descriptive class name */
-
-    .playfair-display-<uniquifier> {
-        font-family: "Playfair Display", serif;
-        font-optical-sizing: auto;
-        font-weight: <weight>;
-        font-style: normal;
-    }
 
 </style>
