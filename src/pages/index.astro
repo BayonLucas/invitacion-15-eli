@@ -1,10 +1,15 @@
 ---
 import Layout from '../layouts/layout.astro';
+import Portada from '../sections/portada.astro'
 ---
 
 <Layout title="Mis 15 - Invitación">
+	<div class="parallax-mirror" style="visibility: visible; z-index: -100; position: fixed; top: 0px; left: 0px; overflow: hidden; transform: translate3d(0px, -16px, 0px); height: 490px; width: 365px;">
+		<img class="parallax-slider" src="public/portada-mobile.webp" style="transform: translate3d(-137px, 12.8px, 0px); position: absolute; height: 490px; width: 639px; max-width: none;">
+	</div>
 	<main class="font-elegant min-h-screen flex flex-col items-center justify-center p-4">
 		<h1 class="text-5xl font-serif mb-4 text-center">Abril 🎉</h1>
 		<p class="italic text-xl text-gray-600">¡Estás invitado a mi celebración!</p>
+		<Portada />
 	</main>
 </Layout>
