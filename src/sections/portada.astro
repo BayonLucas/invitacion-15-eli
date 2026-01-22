@@ -2,7 +2,7 @@
 
 ---
 
-<section class="portada">
+<section class="portada flex flex-col justify-center items-center">
     <div class="d-md-flex">
         <div class="portada-picture">
             
@@ -15,7 +15,7 @@
                 <picture></picture>
                 <div class="row d-flex justiy-content-center align-items-center">
                     <div class="content-portada text-center">
-                        <div class="box">
+                        <div class="box-nombres-fecha-portada">
                             <span class="fecha">25.05.2026</span>
                             <h1>Elizabeth</h1>
                             <h2>Mis 15 años</h2>
@@ -26,3 +26,258 @@
         </div>
     </div>
 </section>
+
+
+<style>
+    section.portada{
+        width: 100%;
+        padding-bottom: 0;
+        background-size: cover;
+        color: #fff;
+        position: relative;
+    }
+
+    section.portada .portada-picture {
+        width: 55%;
+        position: relative;
+    }
+
+    section.portada .portada-container {
+        width: 45%;
+        background:var(--color-5);
+        padding-bottom: 60px;
+        position: relative;
+    }
+
+    section.portada .portada-container .portada-container-2{
+        width: 100%;
+        max-width: 610px;
+        background: var(--color-5);
+        padding-bottom: 60px;
+        position: relative;
+    }
+
+    section.portada .portada-container .row.d-flex {
+        height: 810px;
+        margin: 0;
+    }
+
+    section.portada .portada-picture::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(129, 148, 139, 0.4);
+        z-index: 0;
+        top: 0;
+        left: 0;
+    }
+
+    section.portada .portada-picture::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('/curva_portada_vertical.svg');
+        background-repeat: no-repeat;
+        background-position: top right;
+        z-index: 0;
+        top: 0;
+        right: 0;
+    }
+
+    section.portada::after{
+        background-image: url('/img_ondas01.svg');
+        position: absolute;
+        content: '';
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        height: 100%;
+        width: 100%;
+        bottom: -10%;
+        z-index: 9;
+    }
+
+    section.portada .container .row:first-child{
+        height: 100vh;
+    }
+
+    section.portada .content-portada{
+        width: 100%;
+        z-index: 999;
+        position: relative;
+    }
+
+    section.portada .adorno {
+        position: absolute;
+        height: auto;
+    }
+
+    section.portada .adorno-1 {
+        position: absolute;
+        width: 100%;
+        top: -245px;
+        max-height: 420px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    section.portada .adorno-2 {
+        position: absolute;
+        width: 125px;
+        top: 25px;
+        left:20%;
+        z-index: 2;
+    }
+
+    section.portada .adorno-3 {
+        position: absolute;
+        width: 170px;
+        top: -5px;
+        left:35%;
+        z-index: 3;
+    }
+
+    section.portada .adorno-4 {
+        position: absolute;
+        width: 130px;
+        top: 10px;
+        right:22%;
+        z-index: 2;
+    }
+
+    section.portada .content-portada span.fecha{
+        display: inline-block;
+        white-space: nowrap;
+        width:auto;
+        font-family: var(--fuente-2);
+        font-weight:var(--grosor-fuente-regular);
+        font-size: 25px;
+        line-height:25px;
+        color: var(--color-1);
+        padding: 0 30px 7px;
+        margin-bottom: 35px;
+        margin-top: 40px;
+
+        border: 2px solid;
+        border-image-slice: 1;
+        border-width: 2px;
+        border-image-source: linear-gradient(to right, var(--color-6), var(--color-7), var(--color-8));
+    
+    }
+
+    section.portada .content-portada span.fecha:before{
+        right: -25%;
+    }
+
+    section.portada .content-portada span.fecha:after{
+        left: -25%;
+    }
+
+    section.portada .content-portada h1 + span:before, section.portada .content-portada h1 + span:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 30px;
+        width: 80px;
+        height:1px;
+    }
+
+    section.portada .content-portada h1+span:before{
+        left:65px;
+        background: var(--color-8);
+        background: linear-gradient(90deg, var(--color-8) 0%, var(--color-7) 50%, var(--color-6) 100%);
+    }
+
+    section.portada .content-portada h1+span:after{
+        right:65px;
+        background: var(--color-8);
+        background: linear-gradient(90deg, var(--color-6) 0%, var(--color-7) 50%, var(--color-8) 100%);
+    }
+
+    section.portada .content-portada h1{
+        width: 100%;
+        text-align: center;
+        font-family: var(--fuente-1);
+        color:var(--color-2);
+        font-size: 100px;
+        line-height: 80px;
+        margin-bottom: 0;
+    }
+
+    section.portada .content-portada h2{
+        color:var(--color-3);
+        font-family: var(--fuente-2);
+        font-weight: var(--grosor-fuente-regular);
+        font-size: 35px;
+    }
+
+    section.portada .box-nombres-fecha-portada h1:nth-of-type(2) {
+        margin-top: 10px;
+    }
+
+    section.portada .box-nombres-fecha-portada h1 + span{
+        background-color: var(--color-9);
+        position: relative;
+        display: inline-block;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 40px;
+        font-family: var(--fuente-1);
+        font-weight:var(--grosor-fuente-regular);
+        color:var(--color-1)
+    }
+
+    section.portada .box-frase-portada{
+        margin-top: 25px;
+    }
+
+    section.portada .box-frase-portada p{
+        font-family: var(--fuente-2);
+        font-weight: var(--grosor-fuente-regular);
+        font-size: 22px;
+        text-align: center;
+        color: var(--color-1);
+    }
+
+    section.portada .box-frase-portada p img{
+        width: 30px;
+        margin: 10px 0
+    }
+
+    ul.lang-inv{
+        position:absolute;
+        width:100%;
+        top:-65px;
+    }
+
+    ul.lang-inv li{
+        margin: 0 5px;
+    }
+
+    ul.lang-inv li a{
+        color: var(--color-1);
+        background-color:var(--color-3);
+        font-size:14px;
+        font-family: var(--fuente-2);
+        font-weight:400;
+        display: inline-block;
+        line-height:30px;
+        height:30px;
+        width:30px;
+        text-align: center;
+        border-radius: 50%;
+    }
+
+    ul.lang-inv li a:hover{
+        text-decoration: none;
+        background:var(--color-1);
+        color:#fff
+    }
+
+
+</style>

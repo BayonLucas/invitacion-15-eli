@@ -1,1 +1,176 @@
 @import "tailwindcss";
+
+html {
+	scroll-behavior: smooth;
+}
+:root{
+    --color-1: #817266;
+    --color-2: #BAA67C;
+    --color-3: #7CA097;
+    --color-4: #C6D7CF;
+    --color-5: #FFFCF8;
+    --color-6: #A86B1D;
+    --color-7: #F7E586;
+    --color-8: #E6B64B;
+    --color-9: #E5E9D0;
+    --fuente-1: ['Parisienne', 'cursive'];
+    --fuente-2: ['Playfair Display', 'serif'];
+}
+
+/* Scroll */
+
+::-webkit-scrollbar {
+width: 10px;
+height: 10px;
+}
+
+::-webkit-scrollbar-track {
+background: #fff;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 10px;
+background:var(--color-2);  
+}
+
+::-webkit-scrollbar-thumb:hover {
+background:var(--color-1);  
+}
+
+.custom-control-label::before {
+  height: 20px;
+  width: 20px;
+}
+
+.custom-control-label::after{
+  height: 20px;
+  width: 20px;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: var(--color-2);
+  border-color: var(--color-2);
+  background-color: var(--color-2);
+  outline: none;
+}
+.custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow:none !important;
+}
+
+.addeventatc:hover{
+  background: none;
+}
+
+.fancybox-bg{
+  background-color: var(--color-2) !important;
+}
+
+.boton{
+  background: var(--color-2);
+  color: #fff;
+  font-family: var(--fuente-2);
+  font-weight:300;
+  border-radius: 50px;
+  line-height: 15px;
+  font-size: 17px;
+  padding: 18px 30px;
+
+  -webkit-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.40);
+  -moz-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.40);
+  box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.40);
+  
+  -webkit-transition: all 0.5s 0s ease;
+  -moz-transition: all 0.5s 0s ease;
+  -o-transition: all 0.5s 0s ease;
+  transition: all 0.5s 0s ease;
+}
+
+.boton:hover{
+  background:var(--color-1);
+  text-decoration: none;
+  color:#fff;
+}
+
+.title{
+  width: 100%;
+  display: inline-block;
+  font-family: var(--fuente-1);
+  color: var(--color-2);
+  font-size: 60px;
+  line-height:60px;
+  margin-bottom: 0;
+}
+
+.subtitle{
+  width: 100%;
+  display: inline-block;
+  font-family: var(--fuente-2);
+  color: var(--color-1);
+  font-size: 20px;
+  font-weight: var(--grosor-fuente-regular);
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+}
+
+
+a{
+  -webkit-transition: all 0.5s 0s ease;
+  -moz-transition: all 0.5s 0s ease;
+  -o-transition: all 0.5s 0s ease;
+  transition: all 0.5s 0s ease;
+}
+
+/* Fondo modales */
+.modal-backdrop {
+  background-color:var(--color-5);
+  opacity:0.95 !important;
+}
+
+.modal-body{
+  flex: inherit;
+}
+
+
+.modal.modal-transparent .modal-content{
+  border: none;
+  background-color: transparent;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+
+.modal.modal-transparent .close{
+  color: var(--color-1);
+  font-size: 40px;
+  text-shadow: none;
+  opacity: 1;
+  position: absolute;
+  right: 35px;
+  outline: none;
+  padding: 0;
+}
+
+.modal.modal-transparent .modal-header, .modal .modal-transparent  .modal-footer{
+  border: none;
+  padding: 0;
+}
+
+.modal.modal-transparent .modal-header h3{
+  color: var(--color-1);
+  font-family: var(--fuente-2);
+  font-weight:var(--grosor-fuente-regular);
+  text-align: center;
+  width: 100%;
+}
+
+.modal.modal-transparent .boton{
+  padding: 15px 50px;
+}
+

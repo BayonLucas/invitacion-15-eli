@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
+    "aos": "^2.3.4",
     "astro": "^5.16.9",
+    "parallax": "^0.0.0",
     "tailwindcss": "^4.1.18"
   }
 }

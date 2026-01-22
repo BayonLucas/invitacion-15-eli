@@ -1,15 +1,66 @@
 ---
-import Layout from '../layouts/layout.astro';
-import Portada from '../sections/portada.astro'
+import Layout from '@/layouts/Layout.astro';
+import Portada from '@/sections/portada.astro'
+import CeremoniaFiesta from '@/sections/ceremonia-fiesta.astro'
+import Galeria from '@/sections/galeria.astro'
+import Regalos from '@/sections/regalos.astro'
+import CuentaRegresiva from '@/sections/cuenta-regresiva.astro'
+import Instagram from '@/sections/instagram.astro'
+import Footer from '@/sections/footer.astro'
 ---
 
 <Layout title="Mis 15 - Invitación">
-	<div class="parallax-mirror" style="visibility: visible; z-index: -100; position: fixed; top: 0px; left: 0px; overflow: hidden; transform: translate3d(0px, -16px, 0px); height: 490px; width: 365px;">
-		<img class="parallax-slider" src="public/portada-mobile.webp" style="transform: translate3d(-137px, 12.8px, 0px); position: absolute; height: 490px; width: 639px; max-width: none;">
+	<div class="parallax-mirror" style="visibility: visible; z-index: -100; position: fixed; top: 0px; left: 0px; overflow: hidden; transform: translate3d(0px, -16px, 0px); height: 490px; width: 100%;">
+		<img class="parallax-slider" src="/portada-mobile.webp" style="transform: translate3d(-137px, 12.8px, 0px); position: absolute; height: 490px; width: 639px; max-width: none;">
 	</div>
+	
+	<div class="parallax-mirror" 
+		style="visibility: hidden; z-index: -100; position: fixed; top: 0px; left: 0px; overflow: hidden; height: 765.531px; width: 365px;">
+		<img class="parallax-slider" src="/instagram_mobile.webp" style="position: absolute; height: 713px; width: 523px; max-width: none;">
+	</div>
+
+	<div class="preloader-area" style="display: none;">
+		<div class="d-flex justify-content-center align-items-center h-100">
+			<div class="loader" style="display: none;"></div>
+		</div>
+	</div>
+
 	<main class="font-elegant min-h-screen flex flex-col items-center justify-center p-4">
-		<h1 class="text-5xl font-serif mb-4 text-center">Abril 🎉</h1>
-		<p class="italic text-xl text-gray-600">¡Estás invitado a mi celebración!</p>
 		<Portada />
+		<CuentaRegresiva />
+		<CeremoniaFiesta />
+		<!-- <Galeria /> -->
+		<Regalos />
+		<Instagram />
+		<Footer />
 	</main>
 </Layout>
+
+<style>
+	/* Loader */
+
+
+	.preloader-area {
+	position: fixed;
+	background: var(--color-5);
+	z-index: 11000;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	}
+
+	.preloader-area .loader{
+	width: 130px;
+	}
+
+
+	span#error-form{
+	color: red;
+	font-size: 13px;
+	}
+
+
+	/* ---------- */
+
+
+</style>
