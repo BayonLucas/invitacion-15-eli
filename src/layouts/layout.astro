@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import 'aos/dist/aos.css';
 
 interface Props {
 	title: string;
@@ -16,11 +17,20 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 		<title>{title}</title>
-		</head>
+	</head>
 	<body class="bg-[#faf9f6] text-[#333] antialiased">
 		<div class="max-w-6xl px-10 pt-40 mx-auto">
 			<slot />
 		</div>
+		<script>
+			import AOS from 'aos/dist/aos.js';
+			
+			AOS.init({
+				duration: 1000,
+				once: false,
+				offset: 100
+			});
+		</script>
 	 </body>
 </html>
 
