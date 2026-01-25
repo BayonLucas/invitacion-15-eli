@@ -9,10 +9,21 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fancyapps/ui": "^6.1.9",
+    "@popperjs/core": "^2.11.8",
     "@tailwindcss/vite": "^4.1.18",
     "aos": "^2.3.4",
     "astro": "^5.16.9",
+    "bootstrap": "^5.3.8",
+    "jquery": "^3.5.1",
+    "jquery-parallax.js": "^1.5.0",
+    "lottie-web": "^5.13.0",
     "parallax": "^0.0.0",
+    "parallax-js": "^3.1.0",
+    "slick-carousel": "^1.8.1",
     "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.33"
   }
 }

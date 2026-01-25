@@ -7,36 +7,93 @@ import Regalos from '@/blocks/regalos.astro'
 import CuentaRegresiva from '@/blocks/cuenta-regresiva.astro'
 import Instagram from '@/blocks/instagram.astro'
 import Footer from '@/blocks/footer.astro'
+
 ---
 
 
 <Layout title="Mis 15 - Invitación">
-	<div class="parallax-mirror" style="visibility: visible; z-index: -100; position: fixed; top: 0px; left: 0px; overflow: hidden; transform: translate3d(0px, -16px, 0px); height: 490px; width: 100%;">
-		<img class="parallax-slider" src="/portada-mobile.webp" style="transform: translate3d(-137px, 12.8px, 0px); position: absolute; height: 490px; width: 639px; max-width: none;">
-	</div>
+	<!-- <div class="parallax-window" data-parallax="scroll" data-image-src="/portada-mobile.webp">
+		<div class="overlay-content">
+			<Portada />
+		</div>
+	</div> -->
 	
-	<div class="parallax-mirror" 
-		style="visibility: hidden; z-index: -100; position: fixed; top: 0px; left: 0px; overflow: hidden; height: 765.531px; width: 365px;">
-		<img class="parallax-slider" src="/instagram_mobile.webp" style="position: absolute; height: 713px; width: 523px; max-width: none;">
-	</div>
+	<div class="parallax-window" data-parallax="scroll" data-image-src="/portada-mobile.webp">
+        <div class="container h-100 d-flex align-items-center justify-content-center">
+            <div data-aos="fade-up">
+                <Portada />
+            </div>
+        </div>
+    </div>
 
-	<div class="preloader-area" style="display: none;">
-		<div class="d-flex justify-content-center align-items-center h-100">
-			<div class="loader" style="display: none;"></div>
+	<section class="white-section">
+		<CuentaRegresiva />
+	</section>
+
+	<div class="parallax-window" data-parallax="scroll" data-image-src="/instagram_mobile.webp">
+		<div class="overlay-content">
 		</div>
 	</div>
 
-	<main class="font-elegant min-h-screen flex flex-col items-center justify-center p-4">
-		<Portada />
-		<CuentaRegresiva />
+	<section class="white-section">
 		<CeremoniaFiesta />
-		<!-- <Galeria /> -->
 		<Regalos />
 		<Instagram />
 		<Footer />
-	</main>
+	</section>
+
+
+
+
 </Layout>
 
+<script>
+	import $ from 'jquery';
+	// Importar el plugin que instalaste con npm
+	import 'jquery-parallax.js';
+
+	// Función para inicializar
+	const initParallax = () => {
+		// @ts-ignore
+		$('.parallax-window').parallax({
+		speed: 0.5, // Velocidad del efecto (0 a 1)
+		zIndex: 1   // Asegura que la imagen esté al fondo
+		});
+	};
+
+	// Ejecutar al cargar
+	$(document).ready(initParallax);
+	
+	// Si usas ViewTransitions de Astro, añade esto también:
+	document.addEventListener('astro:after-swap', initParallax);
+</script>
+
+<style is:global>
+	/* Altura de las ventanas de imagen */
+	.parallax-window {
+		height: 100vh; /* Ocupa toda la pantalla */
+		background: transparent;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* Secciones de contenido sólido */
+	.white-section {
+		background-color: white;
+		position: relative;
+		z-index: 10; /* Importante para que pase "por encima" del parallax */
+		padding: 50px 20px;
+		box-shadow: 0 -10px 20px rgba(0,0,0,0.1); /* Sombra para dar profundidad */
+	}
+
+	/* Contenido sobre la imagen */
+	.overlay-content {
+		z-index: 5;
+		text-align: center;
+		width: 100%;
+	}
+</style>
 <style>
 	/* Loader */
 
