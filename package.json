@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
     "@fancyapps/ui": "^6.1.9",
     "@popperjs/core": "^2.11.8",
     "@tailwindcss/vite": "^4.1.18",

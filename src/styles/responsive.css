@@ -1,21 +1,3 @@
----
-import Layout from '@/layouts/Layout.astro';
-import Portada from '@/blocks/portada.astro';
----
-
-
-<Layout title="Mis 15 - Invitación">
-	<Portada />
-
-
-	<script>
-		import '../scripts/main.js';
-	</script>
-
-</Layout>
-
-<style>
-
 	/* Mobile */
 	@media only screen and (max-width: 767px)
 	{
@@ -377,4 +359,3 @@ import Portada from '@/blocks/portada.astro';
 	}
 
 	}
-</style>
