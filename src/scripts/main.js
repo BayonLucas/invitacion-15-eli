@@ -22,10 +22,10 @@ let imageInstagramParallax = '';
 
 if (window.device === 'mobile' || window.innerWidth < 768) {
     imageParallax = window.support_format_webp() ? 'portada-mobile.webp' : 'portada-mobile.jpg';
-    imageInstagramParallax = window.support_format_webp() ? 'img/instagram_mobile.webp' : 'img/instagram_mobile.jpg';
+    imageInstagramParallax = window.support_format_webp() ? 'instagram_mobile.webp' : 'instagram_mobile.jpg';
 } else {
     imageParallax = window.support_format_webp() ? 'portada.webp' : 'portada.jpg';
-    imageInstagramParallax = window.support_format_webp() ? 'img/instagram.webp' : 'img/instagram.jpg';
+    imageInstagramParallax = window.support_format_webp() ? 'instagram.webp' : 'instagram.jpg';
 }
 
 // 4. Cuenta Regresiva
