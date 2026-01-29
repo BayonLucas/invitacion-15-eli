@@ -72,13 +72,35 @@ let animGaleria = bodymovin.loadAnimation({
     wrapper: svgContainerGaleria,
     animType: 'svg',
     loop: true,
-    path: _pathJson + "/json_camara.json"
+    path: _pathJson + "json_camara.json"
 });
 
 animGaleria.play();
 
 
+let svgContainerRegalos = document.querySelector('.anim-regalos');
 
+let animRegalos = bodymovin.loadAnimation({
+    wrapper: svgContainerRegalos,
+    animType: 'svg',
+    loop: true,
+    path: _pathJson + "img_regalo.json"
+});
+
+animRegalos.play();
+
+
+let svgContainerFiesta = document.querySelector('.anim-fiesta');
+
+let animFiesta = bodymovin.loadAnimation({
+    wrapper: svgContainerFiesta,
+    animType: 'svg',
+    loop: true,
+    path: _pathJson + "img_fiesta.json"
+});
+
+animFiesta.play();
+  
 
 
 // 5. Inicialización de Plugins (Aseguramos que el DOM esté listo)
