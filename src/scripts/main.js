@@ -3,7 +3,8 @@ import AOS from 'aos';
 
 // 1. Variables Globales (Las colgamos de window para que funcionen como en FixDate)
 window._pathApp = "https://localhost/";
-window._pathProducto = "/"; // Cambiado de @/ a / (el navegador no entiende @)
+window._pathProducto = "/";
+window._pathJson = "/json/";
 window.fechaCuentaRegresiva = "2026/05/24 21:00:00"; // Formato ISO es más seguro
 
 // 2. Consulta dispositivo (Lo movemos arriba para poder usarlo)
@@ -63,6 +64,19 @@ var x = setInterval(function() {
         $('.falta').text('');
     }
 }, 1000);
+
+
+let svgContainerGaleria = document.querySelector('.anim-galeria');
+
+let animGaleria = bodymovin.loadAnimation({
+    wrapper: svgContainerGaleria,
+    animType: 'svg',
+    loop: true,
+    path: _pathJson + "/json_camara.json"
+});
+
+animGaleria.play();
+
 
 
 
