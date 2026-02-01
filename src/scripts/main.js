@@ -66,46 +66,19 @@ var x = setInterval(function() {
 }, 1000);
 
 
-let svgContainerGaleria = document.querySelector('.anim-galeria');
-
-let animGaleria = bodymovin.loadAnimation({
-    wrapper: svgContainerGaleria,
-    animType: 'svg',
-    loop: true,
-    path: _pathJson + "json_camara.json"
-});
-
-animGaleria.play();
+// initializeAnimations();
 
 
-let svgContainerRegalos = document.querySelector('.anim-regalos');
-
-let animRegalos = bodymovin.loadAnimation({
-    wrapper: svgContainerRegalos,
-    animType: 'svg',
-    loop: true,
-    path: _pathJson + "img_regalo.json"
-});
-
-animRegalos.play();
 
 
-let svgContainerFiesta = document.querySelector('.anim-fiesta');
 
-let animFiesta = bodymovin.loadAnimation({
-    wrapper: svgContainerFiesta,
-    animType: 'svg',
-    loop: true,
-    path: _pathJson + "img_fiesta.json"
-});
-
-animFiesta.play();
   
 
 
 // 5. Inicialización de Plugins (Aseguramos que el DOM esté listo)
 document.addEventListener('DOMContentLoaded', () => {
-    
+    initializeAnimations();
+
     // Portada Parallax
     // @ts-ignore
     $('.portada-picture').parallax({
@@ -136,3 +109,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     });
 });
+
+
+
+
+
+
+
+// Functions
+const initializeClassAnimation = function(className, jsonPath) {
+    let svgContainer = document.querySelector(className);
+
+    let anim = bodymovin.loadAnimation({
+      wrapper: svgContainer,
+      animType: 'svg',
+      loop: true,
+      path: _pathProducto + jsonPath
+    });
+
+    anim.play();
+}
+
+const initializeAnimations = function() {
+    initializeClassAnimation('.anim-instagram', 'json/img_instagram.json');
+    initializeClassAnimation('.anim-fiesta', 'json/img_fiesta.json');
+    initializeClassAnimation('.anim-regalos', 'json/img_regalo.json');
+    initializeClassAnimation('.anim-galeria', 'json/json_camara.json');    
+    initializeClassAnimation('.corazon-falta', 'json/corazon-falta.json');    
+}
