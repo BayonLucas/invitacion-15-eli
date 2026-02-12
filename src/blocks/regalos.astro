@@ -26,16 +26,11 @@
 
   <div class="container">
     <div class="row text-center d-flex justify-content-center align-items-center">
-
       <h2 class="title">Regalos</h2>
       <p class="subtitle">Si deseas regalarme algo más que tu hermosa presencia...</p>
-
       <div class="w-100">
-
         <div class="anim-regalos">
-          
         </div>
-
       </div>
       <br>
       <a href="#" class="boton modal-regalos">Número de CBU</a>
@@ -44,4 +39,13 @@
 </section>
 
 
+<script>
+  $('body').on('click', 'a.modal-regalos', function(e) {
+    e.preventDefault();
 
+    //@ts-ignore
+    $('#modalRegalos').modal({
+      backdrop: 'static'
+    })
+  });
+</script>

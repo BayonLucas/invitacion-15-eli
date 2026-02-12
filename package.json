@@ -14,7 +14,7 @@
     "@popperjs/core": "^2.11.8",
     "@tailwindcss/vite": "^4.1.18",
     "aos": "^2.3.4",
-    "astro": "^5.16.9",
+    "astro": "^5.17.1",
     "bootstrap": "^5.3.8",
     "jquery": "^3.5.1",
     "jquery-parallax.js": "^1.5.0",

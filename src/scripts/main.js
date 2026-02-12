@@ -1,23 +1,18 @@
-// Importamos AOS aquí para que esté disponible
 import AOS from 'aos';
 
-// 1. Variables Globales (Las colgamos de window para que funcionen como en FixDate)
 window._pathApp = "https://localhost/";
 window._pathProducto = "/";
 window._pathJson = "/json/";
 window.fechaCuentaRegresiva = "2026/05/24 21:00:00"; // Formato ISO es más seguro
 
-// 2. Consulta dispositivo (Lo movemos arriba para poder usarlo)
 const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 window.device = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent) ? 'mobile' : 'desktop';
 
-// 3. Funciones de soporte
 window.support_format_webp = function() {
     var elem = document.createElement('canvas');
     return (!!(elem.getContext && elem.getContext('2d'))) && (elem.toDataURL('image/webp').indexOf('data:image/webp') == 0);
 };
 
-// 4. Lógica de Imágenes
 let imageParallax = '';
 let imageInstagramParallax = '';
 
@@ -29,7 +24,6 @@ if (window.device === 'mobile' || window.innerWidth < 768) {
     imageInstagramParallax = window.support_format_webp() ? 'instagram.webp' : 'instagram.jpg';
 }
 
-// 4. Cuenta Regresiva
 // Set the date we're counting down to
 var countDownDate = new Date(fechaCuentaRegresiva).getTime();
 
@@ -64,12 +58,6 @@ var x = setInterval(function() {
         $('.falta').text('');
     }
 }, 1000);
-
-
-// initializeAnimations();
-
-
-
 
 
   
@@ -109,6 +97,86 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     });
 });
+
+
+
+
+//Events
+
+$('body').on('click', 'a.modal-regalos', function(e) {
+    e.preventDefault();
+    $('#modalRegalos').modal({
+        backdrop: 'static'
+    })
+});
+
+$('body').on('click', 'a.modal-como-llegar', function(e) {
+
+    e.preventDefault();
+
+    // Para modelos de 15 años, siempre es Fiesta
+    var titleModalMapa = lang_titleModalMapaFiesta;
+    var latitud = latitudFiesta;
+    var longitud = longitudFiesta;
+    var linkMapConfigured = linkMapsFiesta;
+    var iframeSrc = '';
+    var linkMaps = '';
+
+    // Validar si hay coordenadas válidas
+    var coordenadasValidas = (latitud !== 0 && longitud !== 0 && latitud !== null && longitud !== null);
+
+    // Generar URL del iframe siempre con coordenadas
+    if(coordenadasValidas) {
+    // IFRAME: Siempre usa coordenadas (es la única forma confiable)
+    iframeSrc = 'https://www.google.com/maps?q=' + latitud + ',' + longitud + '&output=embed';
+    
+    // AMPLIAR MAPA: Usa linkMaps si está configurado, sino usa coordenadas
+    if(linkMapConfigured != '' && linkMapConfigured != null) {
+        linkMaps = linkMapConfigured;
+    } else {
+        linkMaps = 'https://www.google.com/maps/search/?api=1&query=' + latitud + ',' + longitud;
+    }
+    } 
+    // No hay coordenadas válidas
+    else {
+    console.warn('No hay coordenadas configuradas para el mapa');
+    iframeSrc = 'https://www.google.com/maps?q=0,0&output=embed';
+    linkMaps = linkMapConfigured != '' ? linkMapConfigured : 'https://www.google.com/maps';
+    }
+
+    // Cambio titulo
+    $('#modalMapa .modal-title').text(titleModalMapa);
+
+    // Mostrar loader y ocultar iframe temporalmente
+    $('#mapLoader').removeClass('hidden');
+    $('#googleMapIframe').css('opacity', '0');
+
+    // Cargo el iframe con la URL generada
+    $('#googleMapIframe').attr('src', iframeSrc);
+
+    // Ocultar loader cuando el iframe termine de cargar
+    $('#googleMapIframe').off('load').on('load', function() {
+    $('#mapLoader').addClass('hidden');
+    $('#googleMapIframe').css('opacity', '1');
+    });
+
+    // Genero el link para ampliar mapa
+    $('.ampliar-mapa').attr('href', linkMaps);
+
+    // Abrir modal
+    $('#modalMapa').modal({
+    backdrop: 'static'
+    });
+
+});
+
+// Resetear loader cuando se cierra el modal
+$('#modalMapa').on('hidden.bs.modal', function() {
+    $('#mapLoader').removeClass('hidden');
+    $('#googleMapIframe').css('opacity', '0');
+    $('#googleMapIframe').attr('src', '');
+});
+  
 
 
 

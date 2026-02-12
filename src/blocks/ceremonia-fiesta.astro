@@ -1,5 +1,6 @@
 ---
-
+interface Props { name: string; startDate: string; endDate: string; fechatext: string; salon: string; direccion: string; }
+const { name, startDate, endDate, fechatext, salon, direccion } = Astro.props;
 ---
 
 <section class="ceremonia-fiesta">
@@ -62,14 +63,14 @@
 
           <div class="info-box">
             <h6>Día</h6>
-            <p>Domingo 24 de Mayo - 21hs</p>
+            <p>{fechatext}</p>
             <a href="#" class="boton addeventatc" id="addeventatc1" title="" aria-haspopup="true" aria-expanded="false" tabindex="0" translate="no" data-loaded="true" style="visibility: visible; z-index: 2;">
               <span class="nameBtn atc_node notranslate">Agendar</span>
 
-              <span class="start atc_node notranslate">2026-05-24 21:00:00</span>
-              <span class="end atc_node notranslate">2026-05-24 23:00:00</span>
+              <span class="start atc_node notranslate">{startDate}</span>
+              <span class="end atc_node notranslate">{endDate}</span>
               <span class="timezone atc_node notranslate">America/Argentina/Buenos_Aires</span>
-              <span class="title atc_node notranslate">Elizabeth ::: Mis 15 años :::  (Fiesta)</span>
+              <span class="title atc_node notranslate">{name} ::: Mis 15 años :::  (Fiesta)</span>
             
               <span id="addeventatc1-drop" class="addeventatc_dropdown " aria-hidden="true"
                 aria-labelledby="addeventatc1"><span class="ateappleical" id="addeventatc1-appleical" role="menuitem" tabindex="-1">Apple Calendar</span><span class="ategoogle" id="addeventatc1-google" role="menuitem" tabindex="-1">Google <em>(online)</em></span><span class="ateoffice365" id="addeventatc1-office365" role="menuitem" tabindex="-1">Office 365 <em>(online)</em></span><span class="ateoutlook" id="addeventatc1-outlook" role="menuitem" tabindex="-1">Outlook</span><span class="ateoutlookcom" id="addeventatc1-outlookcom" role="menuitem" tabindex="-1">Outlook.com <em>(online)</em></span><span class="ateyahoo" id="addeventatc1-yahoo" role="menuitem" tabindex="-1">Yahoo <em>(online)</em></span><em class="copyx"><em class="brx"></em><em class="frs"><a href="https://www.addevent.com" title="" tabindex="-1" id="addeventatc1-home"></a></em></em></span></a>
@@ -77,13 +78,13 @@
 
           <div class="info-box">
             <h6>Lugar</h6>
-            <p>Salon Janos</p>
+            <p>{salon}</p>
             <a href="#" data-evento="Fiesta" class="boton confirmar-asistencia">Confirmar asistencia</a>
           </div>
 
           <div class="info-box">
             <h6>Dirección</h6>
-            <p>Perú 338 - CABA</p>
+            <p>{direccion}</p>
             <a href="#" data-evento="Fiesta" class="boton modal-como-llegar">¿Cómo llegar?</a>
           </div>
         </div>

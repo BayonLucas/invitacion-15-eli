@@ -1,5 +1,10 @@
 ---
-
+interface Props {
+    name: string;
+    text: string;
+    fecha: string;
+}
+const { name, text, fecha } = Astro.props as Props;
 ---
 
 <section class="portada">
@@ -32,14 +37,14 @@
                 <div class="row d-flex justiy-content-center align-items-center">
                     <div class="content-portada text-center">
                         <div class="box-nombres-fecha-portada">
-                            <span class="fecha">24.05.2026</span>
-                            <h1>Elizabeth</h1>
+                            <span class="fecha">{fecha}</span>
+                            <h1>{name}</h1>
                             <h2>Mis 15 años</h2>
                         </div>
                         <div class="box-frase-portada">
                             <p>
                                 <img src="/comilla-apertura.svg" alt=""> 
-                                    <br>Te espero para compartir la alegría de esa noche que será para mi mágica, inolvidable y única. <br>
+                                    <br>{text}<br>
                                 <img src="/comilla-cierre.svg" alt="">
                             </p>
                         </div>
