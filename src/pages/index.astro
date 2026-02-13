@@ -11,14 +11,17 @@ import Regalos from '@/blocks/regalos.astro';
 import Instagram from '@/blocks/instagram.astro';
 import Fiesta from '@/blocks/fiesta.astro';
 import Footer from '@/blocks/footer.astro';
+
 import CbuModal from '../modals/cbu.modal.astro';
+import TipsModal from '../modals/tips.modal.astro';
+import VestuarioModal from '@/modals/vestuario.modal.astro';
 
 const NAME = "Elizabeth";
-const FECHA_TEXT = "Domingo 24 de Mayo - 21hs";
+const FECHA_TEXT = "Domingo 24 de Mayo - 21hs a 05hs";
 const START_DATE = "2026-05-24 21:00:00";
 const END_DATE = "2026-05-25 05:00:00";
 const SALON = "Salón Jano's";
-const DIRECCION = "México 334 - CABA - San Telmo";
+const DIRECCION = "México 334 - San Telmo - Capital Federal";
 const HASHTAG = "#mis15eli";
 const PORTADA_TEXT = "Te espero para compartir la alegría de esa noche que será para mi mágica, inolvidable y única.";
 const PORTADA_FECHA = "24.05.2026";
@@ -27,6 +30,13 @@ const TITULAR = import.meta.env.SECRET_TITULAR;
 const NUMERO_CUENTA = import.meta.env.SECRET_NUMERO_CUENTA;
 const CBU = import.meta.env.SECRET_CBU;
 const ALIAS = import.meta.env.SECRET_ALIAS;
+
+const TIP1 = "Si tenés alguna dieta especial o alergia (celiaquía, veganismo, etc.), te pedimos que nos avises antes del 15/4 inclusive para poder tenerlo en cuenta.";
+const TIP2 = "Vengan con el celu cargado… ¡quiero muchas fotos y recuerdos con ustedes!";
+const TIP3 = "Y lo más importante: vení con ganas de bailar, reír y disfrutar una noche inolvidable junto a amigos.";
+
+const DRESSCODE_H1 = "Elegante"
+const DRESSCODE_H2 = "(No usar Azul/Azul noche)"
 
 ---
 
@@ -55,8 +65,8 @@ const ALIAS = import.meta.env.SECRET_ALIAS;
 		direccion={DIRECCION}
 	/>
 	<!-- <Galeria /> -->
-	<Regalos />
 	<Fiesta />
+	<Regalos />
 	
 	<Footer name={NAME} />
 
@@ -69,6 +79,16 @@ const ALIAS = import.meta.env.SECRET_ALIAS;
 		alias={ALIAS}
 	/>
 
+	<TipsModal 
+		tip1={TIP1}
+		tip2={TIP2}
+		tip3={TIP3}
+	/>
+
+	<VestuarioModal 
+		dressCode={DRESSCODE_H1}
+		dressCode2={DRESSCODE_H2}
+	/>
 
 
 

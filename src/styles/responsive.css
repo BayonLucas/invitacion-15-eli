@@ -2,360 +2,361 @@
 	@media only screen and (max-width: 767px)
 	{
 
-	#modalMusica .modal-content p{
-		font-size:40px;
-		line-height:40px;
-	}
+		#modalMusica .modal-content p{
+			font-size:40px;
+			line-height:40px;
+		}
 
-	#modalMusica .modal-content p + span{
-		font-size:15px
-	}
+		#modalMusica .modal-content p + span{
+			font-size:15px
+		}
 
-	#modalMusica .modal-content .boton{
-		margin-bottom:15px;
-		display: inline-block;
-	}
+		#modalMusica .modal-content .boton{
+			margin-bottom:15px;
+			display: inline-block;
+		}
 
-	.title{
-		font-size: 50px;
-		line-height:45px;
-		padding: 0 15px;
-	}
+		.title{
+			font-size: 50px;
+			line-height:45px;
+			padding: 0 15px;
+		}
 
-	.subtitle{
-		font-size: 19px;
-		padding: 0 15px;
-		margin-top: 25px;
-	}
-
-
-	section.portada .content-portada h1{
-		font-size: 75px;
-		line-height: 75px;
-	}
-
-	section.portada .portada-picture {
-		width: 100%;
-		height: 490px;
-		position: relative;
-	}
-
-	section.portada .portada-picture::after {
-		content: "";
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		background-image: url('../curva_portada_horizontal.png');
-		background-repeat: no-repeat;
-		background-position: bottom center;
-		background-size:contain;
-		z-index: 0;
-		top: 0;
-		left: 0;
-	}
-
-	section.portada .adorno-1, section.portada .adorno-2, section.portada .adorno-3,
-	section.portada .adorno-4{
-		display: none;
-	}
-
-	section.portada .portada-container .row.d-flex {
-		height: 570px;
-	}
-
-	section.portada .portada-container {
-		width: 100%;
-		padding-bottom: 0;
-	}
-
-	section.cuenta-regresiva .box-aros{
-		width: 360px;
-		height:360px;
-		top:-75px
-	}
-
-	section.cuenta-regresiva .adorno-1 {
-		position: absolute;
-		width: 200px;
-		top: -10px;
-		left: 0px;
-	}
-
-	section.portada .box-nombres-fecha-portada h1 span{
-		font-size: 40px;
-		width: 50px;
-		height: 50px;
-		line-height: 50px;
-		margin-bottom: 15px;
-	}
-
-	section.portada .content-portada span.fecha:before{
-		right: -40px;
-	}
-
-	section.portada .content-portada span.fecha:after{
-		left: -40px;
-	}
-
-	section.portada .content-portada{
-		width: 95%;
-	}
-
-	section.portada .content-portada span.fecha{
-		font-size: 25px;
-		margin-bottom: 35px;
-		margin-top:0
-	}
-
-	section.portada .box-frase-portada p{
-		font-size: 20px;
-	}
-
-	section.portada .box-frase-portada{
-		margin-top: 25px;
-		margin-bottom:55px
-	}
-
-	section.portada::after{
-		display:none;
-	}
-
-	section.cuenta-regresiva .box-aros .box-circulo span.falta{
-		font-size: 50px;
-		margin-top: 10px;
-	}
-
-	section.cuenta-regresiva .reloj-col span.number{
-		font-size: 35px;
-	}
-
-	section.footer h4{
-		font-size: 65px;
-		line-height: 45px;
-	}
-
-	section.footer h4 span{
-		font-size: 30px;
-		width: 40px;
-		height: 40px;
-		line-height: 40px;
-		margin-bottom:20px;
-	}
-
-	section.footer .col-acciones-footer ul{
-		padding: 0;
-		margin: 0;
-		text-align: center;
-		margin-top: 50px;
-	}
-
-	section.cuenta-regresiva .reloj-col span.time {
-		font-size: 18px;
-	}
+		.subtitle{
+			font-size: 19px;
+			padding: 0 15px;
+			margin-top: 25px;
+		}
 
 
-	section.cuenta-regresiva .box-aros .box-circulo{
-		padding: 28px 20px;
-		height: 270px;
-		width:270px;
-		max-width: 350px;
-	}
+		section.portada .content-portada h1{
+			font-size: 75px;
+			line-height: 75px;
+		}
 
-	section.ceremonia-fiesta .col-ceremonia h3, section.ceremonia-fiesta .col-fiesta h3{
-		padding: 8px 30px;
-		font-size:45px
-	}
+		section.portada .portada-picture {
+			width: 100%;
+			height: 490px;
+			position: relative;
+		}
 
-	section.ceremonia-fiesta .col-ceremonia .anim-anillos, section.ceremonia-fiesta .anim-fiesta{
-		width: 50%;
-		height:auto;
-	}
+		section.portada .portada-picture::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-image: url('../curva_portada_horizontal.png');
+			background-repeat: no-repeat;
+			background-position: bottom center;
+			background-size:contain;
+			z-index: 0;
+			top: 0;
+			left: 0;
+		}
 
-	section.ceremonia-fiesta .adorno-1 {
-		position: absolute;
-		width: 145px;
-		top: 475px;
-		left: -50px;
-	}
+		section.portada .adorno-1, section.portada .adorno-2, section.portada .adorno-3,
+		section.portada .adorno-4{
+			display: none;
+		}
 
-	section.ceremonia-fiesta .adorno-2 {
-		position: absolute;
-		width: 85px;
-		top: 555px;
-		left: -23px;
-	}
-	
-	section.ceremonia-fiesta .adorno-3 {
-		position: absolute;
-		width: 100px;
-		top: 465px;
-		left: -55px;
-	}
+		section.portada .portada-container .row.d-flex {
+			height: 570px;
+		}
 
-	section.instagram{
-		padding-top: 35%;
-		padding-bottom: 50%;
-	}
+		section.portada .portada-container {
+			width: 100%;
+			padding-bottom: 0;
+		}
 
-	section.footer{
-		padding-bottom: 20%;
-		padding-top: 30%;
-	}
+		section.cuenta-regresiva .box-aros{
+			width: 360px;
+			height:360px;
+			top:-75px
+		}
 
-	section.regalos{
-		padding: 120px 0;
-	}
+		section.cuenta-regresiva .adorno-1 {
+			position: absolute;
+			width: 200px;
+			top: -10px;
+			left: 0px;
+		}
 
-	section.fiesta{
-		padding-bottom: 35%;
-		padding-top:45%;
-		background-position-y: 50px;
-	}
+		section.portada .box-nombres-fecha-portada h1 span{
+			font-size: 40px;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			margin-bottom: 15px;
+		}
 
-	section.fiesta .subtitle{
-		padding-bottom: 50px;
-	}
+		section.portada .content-portada span.fecha:before{
+			right: -40px;
+		}
 
-	section.fiesta .item-fiesta .adorno.adorno-1 {
-		position: absolute;
-		top: -75px;
-		left: -35px;
-		z-index: -1;
-		width: 195px;
-	}
-	
-	section.fiesta .item-fiesta .adorno.adorno-2 {
-		position: absolute;
-		top: -30px;
-		left: 15px;
-		z-index: 3;
-		width: 110px;
-	}
+		section.portada .content-portada span.fecha:after{
+			left: -40px;
+		}
 
-	section.ceremonia-fiesta{
-		padding-bottom: 35%;
-		background-position: center 70px;
-	}
-	
-	section.galeria{
-		padding-top: 70px;
-	}
+		section.portada .content-portada{
+			margin: auto;
+			width: 95%;
+		}
 
-	#modalMapa .modal-header .modal-title{
-		font-size: 35px;
-		margin-top: 10px;
-	}
+		section.portada .content-portada span.fecha{
+			font-size: 25px;
+			margin-bottom: 35px;
+			margin-top:0
+		}
 
-	#modalMapa .modal-content-2 .img-top-modal {
-		height: 50px;
-	}
+		section.portada .box-frase-portada p{
+			font-size: 20px;
+		}
 
-	section.ceremonia-fiesta .info-col .info-box a.boton{
-		min-width: 80%;
-	}
+		section.portada .box-frase-portada{
+			margin-top: 25px;
+			margin-bottom:55px
+		}
 
-	section.fiesta .fiesta-flor-izq{
-		max-width: 25%;
-		bottom: -30%;
-	}
+		section.portada::after{
+			display:none;
+		}
 
-	section.fiesta:after{
-		bottom: -35px;
-	}
+		section.cuenta-regresiva .box-aros .box-circulo span.falta{
+			font-size: 50px;
+			margin-top: 10px;
+		}
 
-	section.instagram:before{
-		top: -2px;
-	}
+		section.cuenta-regresiva .reloj-col span.number{
+			font-size: 35px;
+		}
 
-	section.instagram .hashtag{
-		font-size: 45px;
-	}
+		section.footer h4{
+			font-size: 65px;
+			line-height: 45px;
+		}
 
-	section.instagram:after{
-		bottom: 0;
-	}
+		section.footer h4 span{
+			font-size: 30px;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			margin-bottom:20px;
+		}
 
-	section.fiesta .item-fiesta a.boton{
-		min-width:100%
-	}
+		section.footer .col-acciones-footer ul{
+			padding: 0;
+			margin: 0;
+			text-align: center;
+			margin-top: 50px;
+		}
 
-	#controlador-musica{
-		top: initial;
-		bottom:0;
-		right: 0;
-	}
+		section.cuenta-regresiva .reloj-col span.time {
+			font-size: 18px;
+		}
 
-	.music-anim-icon{
-		width: 80px;
-		height: 80px;
-		cursor: pointer;
-	}
-	
-	section.footer .col-acciones-footer ul li{
-		text-align: center;
-		margin-bottom: 15px;
-	}
 
-	section.cuenta-regresiva{
-		height:330px
-	}
+		section.cuenta-regresiva .box-aros .box-circulo{
+			padding: 28px 20px;
+			height: 270px;
+			width:270px;
+			max-width: 350px;
+		}
 
-	section.ceremonia-fiesta:after{
-		bottom:-2px;
-	}
+		section.ceremonia-fiesta .col-ceremonia h3, section.ceremonia-fiesta .col-fiesta h3{
+			padding: 8px 30px;
+			font-size:45px
+		}
 
-	section.regalos .adorno-1 {
-		position: absolute;
-		width: 145px;
-		top: -90px;
-		left: -50px;
-		z-index: 99;
-	}
-	
-	section.regalos .adorno-2 {
-		position: absolute;
-		width: 85px;
-		top: 10px;
-		left: -23px;
-		z-index: 99;
-	}
-	
-	section.regalos .adorno-3 {
-		position: absolute;
-		width: 100px;
-		top: -50px;
-		left: -55px;
-		z-index: 99;
-	}
+		section.ceremonia-fiesta .col-ceremonia .anim-anillos, section.ceremonia-fiesta .anim-fiesta{
+			width: 50%;
+			height:auto;
+		}
 
-	.modal-dialog .white-circle-icon{
-		top:-80px;
-	}
+		section.ceremonia-fiesta .adorno-1 {
+			position: absolute;
+			width: 145px;
+			top: 475px;
+			left: -50px;
+		}
 
-	.modal .modal-content-2 .adorno-2 {
-		position: absolute;
-		width: 95px;
-		top: -39px;
-		left: -30px;
-	}
+		section.ceremonia-fiesta .adorno-2 {
+			position: absolute;
+			width: 85px;
+			top: 555px;
+			left: -23px;
+		}
+		
+		section.ceremonia-fiesta .adorno-3 {
+			position: absolute;
+			width: 100px;
+			top: 465px;
+			left: -55px;
+		}
 
-	.modal .modal-content-2 .adorno-1 {
-		position: absolute;
-		width: 265px;
-		top: -65px;
-		left: -105px;
-		z-index: -1;
-	}
+		section.instagram{
+			padding-top: 35%;
+			padding-bottom: 50%;
+		}
 
-	.modal .modal-content-2 .modal-header .modal-title {
-		font-size: 35px;
-		line-height:32px;
-		font-family: var(--fuente-1);
-		font-weight: var(--grosor-fuente-regular);
-	}
+		section.footer{
+			padding-bottom: 20%;
+			padding-top: 30%;
+		}
 
-	.flags-laguages {
-		padding: 5px;
-	}
+		section.regalos{
+			padding: 120px 0;
+		}
+
+		section.fiesta{
+			padding-bottom: 35%;
+			padding-top:45%;
+			background-position-y: 50px;
+		}
+
+		section.fiesta .subtitle{
+			padding-bottom: 50px;
+		}
+
+		section.fiesta .item-fiesta .adorno.adorno-1 {
+			position: absolute;
+			top: -75px;
+			left: -35px;
+			z-index: -1;
+			width: 195px;
+		}
+		
+		section.fiesta .item-fiesta .adorno.adorno-2 {
+			position: absolute;
+			top: -30px;
+			left: 15px;
+			z-index: 3;
+			width: 110px;
+		}
+
+		section.ceremonia-fiesta{
+			padding-bottom: 35%;
+			background-position: center 70px;
+		}
+		
+		section.galeria{
+			padding-top: 70px;
+		}
+
+		#modalMapa .modal-header .modal-title{
+			font-size: 35px;
+			margin-top: 10px;
+		}
+
+		#modalMapa .modal-content-2 .img-top-modal {
+			height: 50px;
+		}
+
+		section.ceremonia-fiesta .info-col .info-box a.boton{
+			min-width: 80%;
+		}
+
+		section.fiesta .fiesta-flor-izq{
+			max-width: 25%;
+			bottom: -30%;
+		}
+
+		section.fiesta:after{
+			bottom: -35px;
+		}
+
+		section.instagram:before{
+			top: -2px;
+		}
+
+		section.instagram .hashtag{
+			font-size: 45px;
+		}
+
+		section.instagram:after{
+			bottom: 0;
+		}
+
+		section.fiesta .item-fiesta a.boton{
+			min-width:100%
+		}
+
+		#controlador-musica{
+			top: initial;
+			bottom:0;
+			right: 0;
+		}
+
+		.music-anim-icon{
+			width: 80px;
+			height: 80px;
+			cursor: pointer;
+		}
+		
+		section.footer .col-acciones-footer ul li{
+			text-align: center;
+			margin-bottom: 15px;
+		}
+
+		section.cuenta-regresiva{
+			height:330px
+		}
+
+		section.ceremonia-fiesta:after{
+			bottom:-2px;
+		}
+
+		section.regalos .adorno-1 {
+			position: absolute;
+			width: 145px;
+			top: -90px;
+			left: -50px;
+			z-index: 99;
+		}
+		
+		section.regalos .adorno-2 {
+			position: absolute;
+			width: 85px;
+			top: 10px;
+			left: -23px;
+			z-index: 99;
+		}
+		
+		section.regalos .adorno-3 {
+			position: absolute;
+			width: 100px;
+			top: -50px;
+			left: -55px;
+			z-index: 99;
+		}
+
+		.modal-dialog .white-circle-icon{
+			top:-80px;
+		}
+
+		.modal .modal-content-2 .adorno-2 {
+			position: absolute;
+			width: 95px;
+			top: -39px;
+			left: -30px;
+		}
+
+		.modal .modal-content-2 .adorno-1 {
+			position: absolute;
+			width: 265px;
+			top: -65px;
+			left: -105px;
+			z-index: -1;
+		}
+
+		.modal .modal-content-2 .modal-header .modal-title {
+			font-size: 35px;
+			line-height:32px;
+			font-family: var(--fuente-1);
+			font-weight: var(--grosor-fuente-regular);
+		}
+
+		.flags-laguages {
+			padding: 5px;
+		}
 
 	}

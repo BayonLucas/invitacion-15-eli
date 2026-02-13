@@ -675,7 +675,7 @@ section.ceremonia-fiesta .col-ceremonia h3, section.ceremonia-fiesta .col-fiesta
 
 
 section.ceremonia-fiesta .col-ceremonia h3:after, section.ceremonia-fiesta .col-fiesta h3:after{
-  background-image: url(../img_cinta02.svg);
+  background-image: url('/img_cinta02.svg');
   position: absolute;
   content: '';
   background-size: contain !important;
@@ -1009,14 +1009,14 @@ section.regalos .anim-regalos{
 section.instagram{
   padding-top: 16%;
   padding-bottom: 16%;
-  /* background: url('../portada.jpg') center center; */
+  background: url('/portada.jpg') center center;
   position: relative;
 }
 
 section.instagram{
   padding-top: 16%;
   padding-bottom: 16%;
-  /* background: url('../portada.jpg') center center; */
+  background: url('/portada.jpg') center center;
   position: relative;
 }
 

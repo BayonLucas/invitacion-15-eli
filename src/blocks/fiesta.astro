@@ -3,33 +3,27 @@
         <div class="row text-center d-flex justify-content-center align-items-center">
             <div class="col-md-12">
                 <h2 class="title">Fiesta</h2>
-                <p class="subtitle">Hagamos juntos una fiesta épica. Aquí algunos detalles a tener en cuenta.</p>
+                <p class="subtitle">
+                    Hagamos juntos una fiesta épica. Aquí algunos detalles a tener en cuenta.
+                </p>
             </div>
             <!-- Canciones -->
             <div class="col-md-4 item-fiesta">
                 <picture>
                     <source type="image/webp" srcset="flores_Grupo03_A.webp" />
                     <source type="image/png" srcset="flores_Grupo03_A.png" />
-                    <img
-                        class="adorno adorno-1"
-                        src="flores_Grupo03_A.png"
-                        alt=""
-                    />
+                    <img class="adorno adorno-1" src="flores_Grupo03_A.png" alt="" />
                 </picture>
 
                 <picture>
                     <source type="image/webp" srcset="flores_Grupo03_B.webp" />
                     <source type="image/png" srcset="flores_Grupo03_B.png" />
-                    <img
-                        class="adorno adorno-2"
-                        src="flores_Grupo03_B.png"
-                        alt=""
-                    />
+                    <img class="adorno adorno-2" src="flores_Grupo03_B.png" alt="" />
                 </picture>
 
                 <div class="w-100 content-item-fiesta d-flex flex-column justify-content-between align-items-center">
                     <h3>Música</h3>
-                    <div class="d-flex justify-content-center align-items-center content-anim-fiesta">
+                    <div class="d-flex justify-content-center align-items-center content-anim-fiesta" >
                         <div class="anim-musica"></div>
                     </div>
                     <p>¿Cuál es la canción que no debe faltar en la PlayList de la fiesta?</p>
@@ -63,3 +57,179 @@
         </div>
     </div>
 </section>
+
+<script>
+    $("body").on("click", "a.sugerir-cancion", function (e) {
+        e.preventDefault();
+        $("#error-form").remove();
+
+        //@ts-ignore
+        $("#modalSugerirCancion").modal({
+            backdrop: "static",
+        });
+    });
+
+    $("body").on("click", "a.modal-vestuario", function (e) {
+        e.preventDefault();
+
+        //@ts-ignore
+        $("#modalVestuario").modal({
+            backdrop: "static",
+        });
+    });
+
+    $("body").on("click", "a.modal-tips", function (e) {
+        e.preventDefault();
+
+        //@ts-ignore
+        $("#modalTips").modal({
+            backdrop: "static",
+        });
+    });
+
+    // // Validacion de form.
+    // function isOkSugerirCancion() {
+    //     // Remuevo mensajes de error anteriores
+    //     $("#error-form").remove();
+
+    //     // Variables necesarias para la validacion
+    //     var flag = true;
+    //     var err = "";
+
+    //     // Variables del form para validar.
+    //     var sugerenciaName = $.trim($("#nombreSugerencia").val());
+    //     var sugerenciaDescription = $.trim($("#descripcionSugerencia").val());
+    //     var sugerenciaLink = $.trim($("#linkSugerencia").val());
+
+    //     // Descripcion
+    //     if (sugerenciaDescription == "") {
+    //         flag = false;
+    //         err = lang_cancionRequerida;
+    //     } else {
+    //         if (sugerenciaDescription.length > 50) {
+    //             flag = false;
+    //             err = lang_caracteresCancionSugerencia;
+    //         }
+    //     }
+
+    //     // Link
+    //     if (sugerenciaLink != "") {
+    //         if (!is_url(sugerenciaLink)) {
+    //             flag = false;
+    //             err = lang_linkIncorrecto;
+    //         }
+    //         if (sugerenciaLink.length > 250) {
+    //             flag = false;
+    //             err = lang_caracteresLinkSugerencia;
+    //         }
+    //     }
+
+    //     // Nombre
+    //     if (sugerenciaName == "") {
+    //         flag = false;
+    //         err = lang_nombreRequerido;
+    //     } else {
+    //         if (sugerenciaName.length > 20) {
+    //             flag = false;
+    //             err = lang_caracteresNombreSugerencia;
+    //         }
+    //     }
+
+    //     // Si hay error
+    //     if (flag === false) {
+    //         // Imprimo el error
+    //         $("#formSugerirCancion").after(
+    //             '<span id="error-form">' + err + "</span>",
+    //         );
+    //     }
+
+    //     // Retorno el estado de la validacion
+    //     return flag;
+    // }
+
+    // // Enviar sugerencia
+    // $("body").on("click", "#sendSugerenciaCancion", function (e) {
+    //     e.preventDefault();
+
+    //     if (isOkSugerirCancion()) //Form bien validado
+    //     {
+    //         // Load and disabled buttom.
+    //         $("#sendSugerenciaCancion").text(lang_enviandoSugerencia + "...");
+    //         $("#sendSugerenciaCancion").prop("disabled", true);
+
+    //         // Obtengo el Form.
+    //         var formulario = $("#formSugerirCancion")[0];
+
+    //         // Obtengo los datos del formulario
+    //         var datos = new FormData(formulario);
+
+    //         // Visualizar como viajan los datos
+    //         for (var pair of datos.entries()) {
+    //             console.log(pair[0] + ", " + pair[1]);
+    //         }
+
+    //         // Envio con fetch los datos mediante POST
+    //         fetch(_pathApp + "producto/fetchs/sugerir-cancion.php", {
+    //             method: "POST",
+    //             body: datos,
+    //         })
+    //             // Promesas fetch
+    //             .then((res) => res.json())
+    //             .then((data) => {
+    //                 // Si recibo error
+    //                 if (data.error === true) {
+    //                     $("#sendSugerenciaCancion").text(lang_sugerirCancion);
+    //                     $("#sendSugerenciaCancion").prop("disabled", false);
+
+    //                     // Imprimo el error
+    //                     $("#formSugerirCancion").after(
+    //                         '<span id="error-form">' + data.desc + "</span>",
+    //                     );
+    //                 }
+
+    //                 // Si no hay error
+    //                 if (data.error === false) {
+    //                     $("#sendSugerenciaCancion").text(lang_sugerirCancion);
+    //                     $("#sendSugerenciaCancion").prop("disabled", false);
+
+    //                     // Oculto elementos del form y reseteo
+    //                     $("#formSugerirCancion")[0].reset();
+    //                     $(
+    //                         "#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5",
+    //                     ).hide();
+
+    //                     // Acomodo el css para centrar mensaje
+    //                     $("#modalSugerirCancion .modal-body").addClass(
+    //                         "fix-height",
+    //                     );
+
+    //                     // Muestro mensaje de exito
+
+    //                     $("#modalSugerirCancion .msj-content")
+    //                         .html(
+    //                             "<h5>" +
+    //                                 lang_sugerirCancionMsjExito_1 +
+    //                                 "</h5><p>" +
+    //                                 lang_sugerirCancionMsjExito_2 +
+    //                                 "</p>",
+    //                         )
+    //                         .show();
+
+    //                     // Cierro modal y vuelvo a activar form
+    //                     setTimeout(function () {
+    //                         $("#modalSugerirCancion").modal("hide");
+    //                         $(
+    //                             "#modalSugerirCancion .formulario-content, #modalSugerirCancion .modal-footer, #modalSugerirCancion h5",
+    //                         ).show();
+    //                         $("#modalSugerirCancion .msj-content")
+    //                             .html("")
+    //                             .hide();
+    //                         $("#modalSugerirCancion .modal-body").removeClass(
+    //                             "fix-height",
+    //                         );
+    //                     }, 4000);
+    //                 }
+    //             });
+    //     }
+    // });
+</script>

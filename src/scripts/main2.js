@@ -169,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ['.anim-instagram', CONFIG.pathJson + 'img_instagram.json'],
         ['.anim-fiesta', CONFIG.pathJson + 'img_fiesta.json'],
         ['.anim-regalos', CONFIG.pathJson + 'img_regalo.json'],
+        ['.anim-musica', CONFIG.pathJson + 'img_musica.json'],
         ['.anim-galeria', CONFIG.pathJson + 'json_camara.json'],
         ['.corazon-falta', CONFIG.pathJson + 'corazon-falta.json'],
         ['.anim-vestuario', CONFIG.pathJson + 'vestuario.json'],
@@ -182,7 +183,11 @@ document.addEventListener('DOMContentLoaded', () => {
         $('.preloader-area').delay(1000).fadeOut(500);
         $('.loader').fadeOut(500);
         
+
+        console.log('Cargando imágenes de parallax:', images);
         $('.portada-picture').parallax({ imageSrc: CONFIG.pathProducto + images.portada });
+        console.log('Cargando imágenes de parallax:', images);
+        
         $('.instagram').parallax({ imageSrc: CONFIG.pathProducto + images.instagram });
 
         setTimeout(() => {
