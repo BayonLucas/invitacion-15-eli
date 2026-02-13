@@ -9,15 +9,16 @@ import CeremoniaFiesta from '@/blocks/ceremonia-fiesta.astro';
 import Galeria from '@/blocks/galeria.astro';
 import Regalos from '@/blocks/regalos.astro';
 import Instagram from '@/blocks/instagram.astro';
+import Fiesta from '@/blocks/fiesta.astro';
 import Footer from '@/blocks/footer.astro';
 import CbuModal from '../modals/cbu.modal.astro';
 
 const NAME = "Elizabeth";
 const FECHA_TEXT = "Domingo 24 de Mayo - 21hs";
 const START_DATE = "2026-05-24 21:00:00";
-const END_DATE = "2026-05-24 23:00:00";
-const SALON = "Salon Jano's";
-const DIRECCION = "Perú 338 - CABA"
+const END_DATE = "2026-05-25 05:00:00";
+const SALON = "Salón Jano's";
+const DIRECCION = "México 334 - CABA - San Telmo";
 const HASHTAG = "#mis15eli";
 const PORTADA_TEXT = "Te espero para compartir la alegría de esa noche que será para mi mágica, inolvidable y única.";
 const PORTADA_FECHA = "24.05.2026";
@@ -34,10 +35,10 @@ const ALIAS = import.meta.env.SECRET_ALIAS;
 <PreLoader />
 
 <Layout title="Mis 15 - Invitación">
-	<FondoMusica 
+	<!-- <FondoMusica 
 		name={NAME}
-	/>
-	<ControladorMusica />
+	/> -->
+	<!-- <ControladorMusica /> -->
 
 	<Portada 
 		name={NAME}
@@ -53,11 +54,10 @@ const ALIAS = import.meta.env.SECRET_ALIAS;
 		salon={SALON}
 		direccion={DIRECCION}
 	/>
-	<Galeria />
+	<!-- <Galeria /> -->
 	<Regalos />
-	<Instagram 
-		hashtag={HASHTAG}
-	/>
+	<Fiesta />
+	
 	<Footer name={NAME} />
 
 
