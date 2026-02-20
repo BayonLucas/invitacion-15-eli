@@ -13,7 +13,7 @@ const CONFIG = {
 
 // Guardamos las rutas de imágenes según el dispositivo y soporte WebP
 const getParallaxImages = () => {
-    const isWebp = !!document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0;
+    const isWebp = document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0;
     const suffix = isWebp ? '.webp' : '.jpg';
     const mobilePrefix = (CONFIG.dispositivo === 'mobile' || window.innerWidth < 768) ? '-mobile' : '';
     
@@ -44,7 +44,12 @@ const Utils = {
     isUrl: (string) => {
         try { return Boolean(new URL(string)); } 
         catch (e) { return false; }
+    },
+
+    isIOS: () => {
+        return /Iphone|iPad|iPod/.test(navigator.userAgent);
     }
+
 };
 
 /**
@@ -183,11 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
         $('.preloader-area').delay(1000).fadeOut(500);
         $('.loader').fadeOut(500);
         
+        console.log(CONFIG.dispositivo);    
 
-        console.log('Cargando imágenes de parallax:', images);
-        $('.portada-picture').parallax({ imageSrc: CONFIG.pathProducto + images.portada });
-        console.log('Cargando imágenes de parallax:', images);
-        
+        if(Utils.isIOS()){
+            document.querySelector(".portada-picture").style.backgroundImage = `url('${CONFIG.pathProducto + images.portada}')`;
+        }
+        else {
+            $('.portada-picture').parallax({ imageSrc: CONFIG.pathProducto + images.portada });        
+        }
         $('.instagram').parallax({ imageSrc: CONFIG.pathProducto + images.instagram });
 
         setTimeout(() => {
