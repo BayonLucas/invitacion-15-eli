@@ -31,48 +31,14 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 		<link href="https://fonts.googleapis.com/css2?family=Parisienne&amp;family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet">
 		
-		<!-- <script type="text/javascript" is:inline src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
-		<script type="text/javascript" is:inline src="../../node_modules/jquery/dist/jquery.min.js"></script>
-	
-		<!-- <script type="text/javascript" is:inline src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script> -->
-		<script type="text/javascript" is:inline src="../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
-		
-		<!-- <script type="text/javascript" is:inline src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
-		
-		<!-- <script type="text/javascript" is:inline src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> -->
-		<script type="text/javascript" is:inline src="../../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
-		
-		<!-- <script type="text/javascript" is:inline src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script> -->
-		<script type="text/javascript" is:inline src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-		
-		<!-- <script type="text/javascript" is:inline src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> -->
-		<script type="text/javascript" is:inline src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-		
-		<!-- <script type="text/javascript" is:inline src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.13.0/lottie_svg.min.js" integrity="sha512-HCpipdm4BrY9+vnxoUu+n1GDyD7eK9KpzXIJs8U9Z4gT1EzMUJdQ5bHOJt/JPvZGFcLETBnC1ryKtirSgR2wKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-		<script type="text/javascript" is:inline src="../../node_modules/lottie-web/build/player/lottie_svg.min.js" ></script>
-		
-		<script type="text/javascript" is:inline src="/scripts/parallax.min.js"></script>
-	
 	</head>
 	<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
 
 		<slot />
-	
-		<script>
-			//@ts-ignore
-			window.jQuery = window.$ = $;
-			//@ts-ignore
-			import AOS from 'aos';
-
-			window.addEventListener('load', () => {
-				AOS.init();
-			});
+		
+		<script type="module">
+			import "/src/scripts/vendors.js";
 		</script>
-
-		<script>
-			import '../scripts/main2.js';
-		</script>
-
 
 	 </body>
 </html>

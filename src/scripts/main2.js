@@ -84,9 +84,9 @@ const MusicPlayer = {
 
     init: () => {
         // Cargar API de YouTube
-        const tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        document.head.appendChild(tag);
+        // const tag = document.createElement('script');
+        // tag.src = "https://www.youtube.com/iframe_api";
+        // document.head.appendChild(tag);
 
         MusicPlayer.animIcon = Utils.initLottie('.music-anim-icon', CONFIG.pathJson + "music-player-icon.json", false);
 
@@ -161,7 +161,6 @@ const Forms = {
  * 4. INICIALIZACIÓN GLOBAL
  */
 document.addEventListener('DOMContentLoaded', () => {
-    
     window.animLoader = Utils.initLottie('.loader', CONFIG.pathJson + "corazon.json");
     
     // 1. Plugins estáticos
@@ -184,19 +183,30 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 3. Parallax y AOS (Esperamos a que todo cargue)
     window.addEventListener('load', () => {
+        console.log("MAIN CARGADO");
+    
+        onClickRegalosModal();
+        onClickSugerirCancionModal();
+        onClickVestuarioModal();
+        onClickTipsModal();
+        onClickComoLlegarModal();
+        
         const images = getParallaxImages();
         $('.preloader-area').delay(1000).fadeOut(500);
         $('.loader').fadeOut(500);
         
         console.log(CONFIG.dispositivo);    
+        
+        // document.querySelector(".portada-picture").style.backgroundImage = `url('${CONFIG.pathProducto + images.portada}')`;    
+        document.querySelector(".portada-picture").appendChild(document.createElement("img")).setAttribute("src", CONFIG.pathProducto + images.portada);
 
-        if(Utils.isIOS()){
-            document.querySelector(".portada-picture").style.backgroundImage = `url('${CONFIG.pathProducto + images.portada}')`;
-        }
-        else {
-            $('.portada-picture').parallax({ imageSrc: CONFIG.pathProducto + images.portada });        
-        }
-        $('.instagram').parallax({ imageSrc: CONFIG.pathProducto + images.instagram });
+        // if(Utils.isIOS()){
+        //     
+        // }
+        // else {
+        //     $('.portada-picture').parallax({ imageSrc: CONFIG.pathProducto + images.portada });        
+        // }
+        // $('.instagram').parallax({ imageSrc: CONFIG.pathProducto + images.instagram });
 
         setTimeout(() => {
             AOS.init({ duration: 1000, once: true });
@@ -208,3 +218,121 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000)
     });
 });
+
+
+
+
+
+
+
+//events
+const onClickRegalosModal = function (){
+    $('body').on('click', 'a.modal-regalos', function(e) {
+        e.preventDefault();
+    
+        $('#modalRegalos').modal({
+            backdrop: 'static'
+        })
+    });
+}
+
+const onClickSugerirCancionModal = function (){
+    $("body").on("click", "a.sugerir-cancion", function (e) {
+        e.preventDefault();
+        $("#error-form").remove();
+
+        //@ts-ignore
+        $("#modalSugerirCancion").modal({
+            backdrop: "static",
+        });
+    });
+}
+
+const onClickVestuarioModal = function (){
+    $("body").on("click", "a.modal-vestuario", function (e) {
+        e.preventDefault();
+
+        //@ts-ignore
+        $("#modalVestuario").modal({
+            backdrop: "static",
+        });
+    });
+}
+
+const onClickTipsModal = function (){
+    $("body").on("click", "a.modal-tips", function (e) {
+        e.preventDefault();
+
+        //@ts-ignore
+        $("#modalTips").modal({
+            backdrop: "static",
+        });
+    });
+}
+
+const onClickComoLlegarModal = function (){
+    // Abrir modal
+    $('body').on('click', 'a.modal-como-llegar', function(e) {
+      e.preventDefault();
+
+      // Para modelos de 15 años, siempre es Fiesta
+      var latitud = -34.614903016530114;
+      var longitud = -58.371135930823804;
+      var linkMapConfigured = "";
+      var iframeSrc = '';
+      var linkMaps = '';
+
+      // Validar si hay coordenadas válidas
+      var coordenadasValidas = (latitud !== 0 && longitud !== 0 && latitud !== null && longitud !== null);
+
+      // Generar URL del iframe siempre con coordenadas
+      if(coordenadasValidas) {
+        // IFRAME: Siempre usa coordenadas (es la única forma confiable)
+        iframeSrc = 'https://www.google.com/maps?q=' + latitud + ',' + longitud + '&output=embed';
+        
+        // AMPLIAR MAPA: Usa linkMaps si está configurado, sino usa coordenadas
+        if(linkMapConfigured != '' && linkMapConfigured != null) {
+          linkMaps = linkMapConfigured;
+        } else {
+          linkMaps = 'https://www.google.com/maps/search/?api=1&query=' + latitud + ',' + longitud;
+        }
+      } 
+      // No hay coordenadas válidas
+      else {
+        console.warn('No hay coordenadas configuradas para el mapa');
+        iframeSrc = 'https://www.google.com/maps?q=0,0&output=embed';
+        linkMaps = linkMapConfigured != '' ? linkMapConfigured : 'https://www.google.com/maps';
+      }
+
+      // Mostrar loader y ocultar iframe temporalmente
+      $('#mapLoader').removeClass('hidden');
+      $('#googleMapIframe').css('opacity', '0');
+
+      // Cargo el iframe con la URL generada
+      $('#googleMapIframe').attr('src', iframeSrc);
+
+      // Ocultar loader cuando el iframe termine de cargar
+      $('#googleMapIframe').off('load').on('load', function() {
+        $('#mapLoader').addClass('hidden');
+        $('#googleMapIframe').css('opacity', '1');
+      });
+
+      // Genero el link para ampliar mapa
+      $('.ampliar-mapa').attr('href', linkMaps);
+
+      // Abrir modal
+      // @ts-ignore
+      $('#modalMapa').modal({
+        backdrop: 'static'
+      });
+
+    });
+
+    // Resetear loader cuando se cierra el modal
+    $('#modalMapa').on('hidden.bs.modal', function() {
+      $('#mapLoader').removeClass('hidden');
+      $('#googleMapIframe').css('opacity', '0');
+      $('#googleMapIframe').attr('src', '');
+    });
+}
+
