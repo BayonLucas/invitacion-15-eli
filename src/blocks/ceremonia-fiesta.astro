@@ -92,3 +92,75 @@ const { name, startDate, endDate, fechatext, salon, direccion } = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  
+    // Abrir modal
+    $('body').on('click', 'a.modal-como-llegar', function(e) {
+
+      e.preventDefault();
+
+      // Para modelos de 15 años, siempre es Fiesta
+      var latitud = -34.614903016530114;
+      var longitud = -58.371135930823804;
+      var linkMapConfigured = "https://maps.app.goo.gl/HnweR39V4qJx9imu7";
+      var iframeSrc = '';
+      var linkMaps = '';
+
+      // Validar si hay coordenadas válidas
+      var coordenadasValidas = (latitud !== 0 && longitud !== 0 && latitud !== null && longitud !== null);
+
+      // Generar URL del iframe siempre con coordenadas
+      if(coordenadasValidas) {
+        // IFRAME: Siempre usa coordenadas (es la única forma confiable)
+        iframeSrc = 'https://www.google.com/maps?q=' + latitud + ',' + longitud + '&output=embed';
+        
+        // AMPLIAR MAPA: Usa linkMaps si está configurado, sino usa coordenadas
+        if(linkMapConfigured != '' && linkMapConfigured != null) {
+          linkMaps = linkMapConfigured;
+        } else {
+          linkMaps = 'https://www.google.com/maps/search/?api=1&query=' + latitud + ',' + longitud;
+        }
+      } 
+      // No hay coordenadas válidas
+      else {
+        console.warn('No hay coordenadas configuradas para el mapa');
+        iframeSrc = 'https://www.google.com/maps?q=0,0&output=embed';
+        linkMaps = linkMapConfigured != '' ? linkMapConfigured : 'https://www.google.com/maps';
+      }
+
+      // // Cambio titulo
+      // $('#modalMapa .modal-title').text(titleModalMapa);
+
+      // Mostrar loader y ocultar iframe temporalmente
+      $('#mapLoader').removeClass('hidden');
+      $('#googleMapIframe').css('opacity', '0');
+
+      // Cargo el iframe con la URL generada
+      $('#googleMapIframe').attr('src', iframeSrc);
+
+      // Ocultar loader cuando el iframe termine de cargar
+      $('#googleMapIframe').off('load').on('load', function() {
+        $('#mapLoader').addClass('hidden');
+        $('#googleMapIframe').css('opacity', '1');
+      });
+
+      // Genero el link para ampliar mapa
+      $('.ampliar-mapa').attr('href', linkMaps);
+
+      // Abrir modal
+      // @ts-ignore
+      $('#modalMapa').modal({
+        backdrop: 'static'
+      });
+
+    });
+
+    // Resetear loader cuando se cierra el modal
+    $('#modalMapa').on('hidden.bs.modal', function() {
+      $('#mapLoader').removeClass('hidden');
+      $('#googleMapIframe').css('opacity', '0');
+      $('#googleMapIframe').attr('src', '');
+    });
+  
+</script>

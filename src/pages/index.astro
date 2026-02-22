@@ -15,15 +15,16 @@ import Footer from '@/blocks/footer.astro';
 import CbuModal from '../modals/cbu.modal.astro';
 import TipsModal from '../modals/tips.modal.astro';
 import VestuarioModal from '@/modals/vestuario.modal.astro';
+import Mapa from '@/modals/mapa.modal.astro';
 
 const NAME = "Elizabeth";
 const FECHA_TEXT = "Domingo 24 de Mayo - 21hs a 05hs";
 const START_DATE = "2026-05-24 21:00:00";
 const END_DATE = "2026-05-25 05:00:00";
-const SALON = "Salón Jano's";
-const DIRECCION = "México 334 - San Telmo - Capital Federal";
+const SALON = "Jano's San Telmo Boutique";
+const DIRECCION = "México 334, C1097 Cdad. Autónoma de Buenos Aires";
 const HASHTAG = "#mis15eli";
-const PORTADA_TEXT = "Te espero para compartir la alegría de esa noche que será para mi mágica, inolvidable y única.";
+const PORTADA_TEXT = "Te espero para compartir la alegría de esa noche que será para mí mágica, inolvidable y única.";
 const PORTADA_FECHA = "24.05.2026";
 
 const TITULAR = import.meta.env.SECRET_TITULAR;
@@ -89,7 +90,8 @@ const DRESSCODE_H2 = "(No usar Azul/Azul noche)"
 		dressCode={DRESSCODE_H1}
 		dressCode2={DRESSCODE_H2}
 	/>
-
+	<Mapa />
+	
 
 
 </Layout>
