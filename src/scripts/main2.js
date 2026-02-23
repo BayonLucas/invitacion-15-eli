@@ -188,8 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
         $('.preloader-area').delay(1000).fadeOut(500);
         $('.loader').fadeOut(500);
         
-        console.log(CONFIG.dispositivo);    
-
         if(Utils.isIOS()){
             document.querySelector(".portada-picture").style.backgroundImage = `url('${CONFIG.pathProducto + images.portada}')`;
         }
