@@ -1,3 +1,10 @@
+---
+interface Props {
+  nroWhatsapp: string;
+}
+const { nroWhatsapp } = Astro.props;
+---
+
 <div id="modalAsistencia" class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-md modal-dialog-centered">
 
@@ -25,7 +32,7 @@
           </button>
 
           <div class="white-circle-icon">
-            <img class="" src="/img_circuloCeremonia.svg" alt="">
+            <img class="" src="/img_circuloFiesta.svg" alt="">
           </div>
 
         </div>
@@ -88,3 +95,214 @@
 
   </div>
 </div>
+
+<script >
+  // Abrir modal
+  $('body').on('click', 'a.confirmar-asistencia', function(e) {
+
+    e.preventDefault();
+    $("#error-form").remove();
+
+    var evento = $(this).attr('data-evento');
+    $('#eventoAsistencia').val(evento!);
+
+    var rutaImgModalAsistencia = '/img_circuloFiesta.svg';
+    $('#modalAsistencia .modal-title').text("¿Confirmas asistencia?");
+    $('#modalAsistencia .img-top-modal img').attr('src', rutaImgModalAsistencia!);
+
+    //@ts-ignore
+    $('#modalAsistencia').modal({
+      backdrop: 'static'
+    })
+  });
+
+  function isOkAsistencia() {
+    $("#error-form").remove();
+    
+    var flag = true;
+    var err = '';
+
+    //@ts-ignore
+    // Variables del form para validar.
+    var asistenteName = $("#nombreAsistente").val().trim();
+    //@ts-ignore
+    var asistenteComentarios = $("#comentariosAsistente").val().trim();
+
+    // Nombre
+    if (asistenteName == '') {
+      flag = false;
+      err = "Es necesario ingresar un nombre para confirmar tu asistencia.";
+    } 
+    else {
+      if (asistenteName.length > 100) {
+        flag = false;
+        err = "El nombre no puede tener más de 100 caracteres.";
+      }
+    }
+
+    // Comentarios
+    if (asistenteComentarios != '') {
+      if (asistenteComentarios.length > 100) {
+        flag = false;
+        err = "Los comentarios no pueden tener más de 100 caracteres.";
+      }
+    }
+
+    // Si hay error
+    if (flag === false) {
+      $('#formAsistencia').after('<span id="error-form">' + err + '</span>');
+    }
+
+    return flag;
+  }
+
+//   $('body').on('click', '#sendAsistencia', function(e) {
+
+//     e.preventDefault();
+//     if (isOkAsistencia()){
+//       // Load and disabled buttom.
+//       $("#sendAsistencia").text("Informando asistencia" + "...");
+//       $("#sendAsistencia").prop("disabled", true);
+
+//       var formulario = $("#formAsistencia")[0];
+//       // Obtengo los datos del formulario
+//       //@ts-ignore
+//       var datos = new FormData(formulario);
+
+//       // Visualizar como viajan los datos
+//       for (var pair of datos.entries()) {
+//         console.log(pair[0] + ", " + pair[1]);
+//       }
+
+//       const asistenciaText = datos.get('asistencia') === 'Si' 
+//         ? '*¡Confirmo mi asistencia al 15!* 🎉' 
+//         : '*No podré asistir al 15.* 😔';
+
+//       const mensaje = `
+// Hola! ${asistenciaText}
+
+// 👤 Nombre: ${datos.get('nombre')}
+// 💬 Comentarios: ${datos.get('comentarios') || 'Sin comentarios'}`.trim();
+//       const numero = "5491141870588";
+//       const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+//       window.open(url, "_blank");
+
+//       // // Envio con fetch los datos mediante POST
+//       // fetch(_pathApp + "producto/fetchs/confirmar-asistencia.php", {
+//       //     method: "POST",
+//       //     body: datos
+//       //   })
+//       //   // Promesas fetch
+//       //   .then(res => res.json())
+//       //   .then(data => {
+
+//       //     // Si recibo error 
+//       //     if (data.error === true) {
+
+//       //       $("#sendAsistencia").text(lang_confirmarAsistencia);
+//       //       $("#sendAsistencia").prop("disabled", false);
+
+//       //       // Imprimo el error
+//       //       $('#formAsistencia').after('<span id="error-form">' + data.desc + '</span>');
+//       //     }
+
+//       //     // Si no hay error 
+//       //     if (data.error === false) {
+
+//       //       $("#sendAsistencia").text(lang_confirmarAsistencia);
+//       //       $("#sendAsistencia").prop("disabled", false);
+
+
+//       //       // Oculto elementos del form y reseteo
+//       //       $('#formAsistencia')[0].reset();
+//       //       $('#modalAsistencia .formulario-content, #modalAsistencia .modal-footer, #modalAsistencia h5').hide();
+
+
+
+//       //       // Acomodo el css para centrar mensaje
+//       //       $('#modalAsistencia .modal-body').addClass('fix-height');
+
+//       //       // Muestro mensaje de exito
+//       //       $('#modalAsistencia .msj-content').html(
+//       //         "<h5>" + lang_asistenciaMsjExito_1 + "</h5><p>" + lang_asistenciaMsjExito_2 + "</p>"
+//       //       ).show();
+
+
+//       //       // Cierro modal y vuelvo a activar form
+//       //       setTimeout(function() {
+
+//       //         $('#modalAsistencia').modal('hide');
+//       //         $('#modalAsistencia .formulario-content, #modalAsistencia .modal-footer, #modalAsistencia h5').show();
+//       //         $('#modalAsistencia .msj-content').html('').hide();
+//       //         $('#modalAsistencia .modal-body').removeClass('fix-height');
+
+//       //       }, 4000);
+
+//       //     }
+
+//         // });
+//     }
+//   });
+$('body').on('click', '#sendAsistencia', function(e) {
+    e.preventDefault();
+
+    if (isOkAsistencia()) {
+        // 1. Estado de carga en el botón
+        const $btn = $("#sendAsistencia");
+        const textoOriginal = $btn.text(); // Guardamos el texto original (ej: "Confirmar")
+        
+        $btn.text("Abriendo WhatsApp...").prop("disabled", true);
+
+        // 2. Obtención de datos
+        const formulario = $("#formAsistencia")[0];
+        //@ts-ignore
+        const datos = new FormData(formulario);
+
+        // 3. Construcción del mensaje (Pegado al margen izquierdo para evitar sangrías)
+        const asistenciaText = datos.get('asistencia') === 'Si' 
+            ? '✅ *¡Confirmo mi asistencia al 15!* 🎉' 
+            : '❌ *No podré asistir al 15.* 😔';
+
+        const mensaje = `¡Hola! ${asistenciaText}
+
+👤 *Nombre:* ${datos.get('nombre')}
+${datos.get('comentarios') ? `💬 *Comentarios:* ${datos.get('comentarios')}` : ''}`.trim();
+
+        const numero = "5491141870588";
+        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+        // 4. EJECUCIÓN: Abrir WhatsApp
+        window.open(url, "_blank");
+
+        // 5. LÓGICA DE ÉXITO (Lo que antes estaba en el fetch)
+        
+        // Reset del botón
+        $btn.text(textoOriginal).prop("disabled", false);
+
+        // Ocultar elementos del form y resetear
+        //@ts-ignore
+        $('#formAsistencia')[0].reset(); // Si usas jQuery: $('#formAsistencia')[0].reset();
+        $('#modalAsistencia .formulario-content, #modalAsistencia .modal-footer, #modalAsistencia h5').hide();
+
+        // Acomodo el css para centrar mensaje
+        $('#modalAsistencia .modal-body').addClass('fix-height');
+
+        // Muestro mensaje de éxito (Podés usar tus variables lang_...)
+        $('#modalAsistencia .msj-content').html(
+            "<h5>¡Muchas gracias!</h5><p>Tu mensaje de confirmación se ha generado correctamente.</p>"
+        ).show();
+
+        // Cierre automático del modal y reset de su estado visual
+        setTimeout(function() {
+          //@ts-ignore
+          $('#modalAsistencia').modal('hide');
+          
+          // Importante: Volver a mostrar los campos para la próxima vez que se abra
+          $('#modalAsistencia .formulario-content, #modalAsistencia .modal-footer, #modalAsistencia h5').show();
+          $('#modalAsistencia .msj-content').html('').hide();
+          $('#modalAsistencia .modal-body').removeClass('fix-height');
+        }, 4000);
+    }
+});
+</script>

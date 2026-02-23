@@ -15,7 +15,8 @@ import Footer from '@/blocks/footer.astro';
 import CbuModal from '../modals/cbu.modal.astro';
 import TipsModal from '../modals/tips.modal.astro';
 import VestuarioModal from '@/modals/vestuario.modal.astro';
-import Mapa from '@/modals/mapa.modal.astro';
+import MapaModal from '@/modals/mapa.modal.astro';
+import AsistenciaModal from '@/modals/asistencia.modal.astro';
 
 const NAME = "Elizabeth";
 const FECHA_TEXT = "Domingo 24 de Mayo - 21hs a 05hs";
@@ -90,8 +91,10 @@ const DRESSCODE_H2 = "(No usar Azul/Azul noche)"
 		dressCode={DRESSCODE_H1}
 		dressCode2={DRESSCODE_H2}
 	/>
-	<Mapa />
-	
+	<MapaModal />
+	<AsistenciaModal 
+		nroWhatsapp=''
+	/>
 
 
 </Layout>
