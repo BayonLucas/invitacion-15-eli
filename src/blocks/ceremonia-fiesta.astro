@@ -3,7 +3,7 @@ interface Props { name: string; startDate: string; endDate: string; fechatext: s
 const { name, startDate, endDate, fechatext, salon, direccion } = Astro.props;
 ---
 
-<section class="ceremonia-fiesta">
+<section class="ceremonia-fiesta" >
   <picture>
     <source type="image/webp" srcset="/flores_Grupo02_A.webp">
     <source type="image/png" srcset="/flores_Grupo02_A.png">
@@ -51,17 +51,17 @@ const { name, startDate, endDate, fechatext, salon, direccion } = Astro.props;
 
 
 
-  <div class="container">
+  <div class="container" >
     <div class="row d-flex justify-content-center">
       <div class=" col-md-6 col-fiesta text-center">
-        <div class="anim-fiesta">
+        <div class="anim-fiesta" > 
         </div>
         <br>
-        <h3>Fiesta</h3>
+        <h3 id="informacion-fiesta">Fiesta</h3>
 
         <div class="info-col">
 
-          <div class="info-box">
+          <div class="info-box" id="fecha">
             <h6>Día</h6>
             <p>{fechatext}</p>
             <a href="#" class="boton addeventatc" id="addeventatc1" title="" aria-haspopup="true" aria-expanded="false" tabindex="0" translate="no" data-loaded="true" style="visibility: visible; z-index: 2;">
@@ -76,13 +76,13 @@ const { name, startDate, endDate, fechatext, salon, direccion } = Astro.props;
                 aria-labelledby="addeventatc1"><span class="ateappleical" id="addeventatc1-appleical" role="menuitem" tabindex="-1">Apple Calendar</span><span class="ategoogle" id="addeventatc1-google" role="menuitem" tabindex="-1">Google <em>(online)</em></span><span class="ateoffice365" id="addeventatc1-office365" role="menuitem" tabindex="-1">Office 365 <em>(online)</em></span><span class="ateoutlook" id="addeventatc1-outlook" role="menuitem" tabindex="-1">Outlook</span><span class="ateoutlookcom" id="addeventatc1-outlookcom" role="menuitem" tabindex="-1">Outlook.com <em>(online)</em></span><span class="ateyahoo" id="addeventatc1-yahoo" role="menuitem" tabindex="-1">Yahoo <em>(online)</em></span><em class="copyx"><em class="brx"></em><em class="frs"><a href="https://www.addevent.com" title="" tabindex="-1" id="addeventatc1-home"></a></em></em></span></a>
           </div>
 
-          <div class="info-box">
+          <div class="info-box" id="confirmar-asistencia">
             <h6>Lugar</h6>
             <p>{salon}</p>
             <a href="#" data-evento="Fiesta" class="boton confirmar-asistencia">Confirmar asistencia</a>
           </div>
 
-          <div class="info-box">
+          <div class="info-box" id="direccion">
             <h6>Dirección</h6>
             <p>{direccion}</p>
             <a href="#" data-evento="Fiesta" class="boton modal-como-llegar">¿Cómo llegar?</a>
