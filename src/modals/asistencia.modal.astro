@@ -71,7 +71,7 @@ const { nroWhatsapp } = Astro.props;
         </div>
 
         <div class="modal-footer">
-          <button type="button" id="sendAsistencia" class="boton">Enviar</button>
+          <button type="button" id="sendAsistencia" class="boton boton--azul">Enviar</button>
         </div>
 
       </div>
@@ -181,7 +181,7 @@ ${datos.get('comentarios') ? `💬 *Comentarios:* ${datos.get('comentarios')}` :
             <div class="text-center">
                 <h5 class="mb-3">¡Asistencia informada!</h5>
                 <p>Tu mensaje se ha generado correctamente. Si no se abrió WhatsApp, intenta de nuevo.</p>
-                <button type="button" id="btnCerrarExito" class="boton">Cerrar</button>
+                <button type="button" id="btnCerrarExito" class="boton boton--azul">Cerrar</button>
             </div>
         `).show();
 

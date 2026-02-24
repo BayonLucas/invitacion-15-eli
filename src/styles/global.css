@@ -3,8 +3,8 @@
 :root {
 
 
-  --color-1: #817266;
-  --color-2: #BAA67C;
+  --color-1: #817266; 
+  --color-2: #BAA67C; 
   --color-3: #7CA097;
   --color-4: #C6D7CF;
   --color-5: #FFFCF8;
@@ -15,6 +15,10 @@
   --color-7: #F7E586;
   --color-8: #E6B64B;
 
+  --color-azul-noche: #3265aa;
+  --color-azul-noche-hover: #142A52;
+  --color-azul-noche-active: #08162B;
+  --color-azul-noche-text: #FFFFFF;
 
   /* Fuentes */
 
@@ -1693,3 +1697,18 @@ footer p a:hover{
   color: var(--color-1);
 }
 /* end Estilos card de invitados */
+
+
+.boton--azul {
+  background: var(--color-azul-noche);
+  color: #fff;
+}
+
+.boton--azul:hover {
+  background: var(--color-azul-noche-hover);
+  color: #fff;
+}
+
+.boton--azul:active {
+  background: var(--color-azul-noche-active);
+}

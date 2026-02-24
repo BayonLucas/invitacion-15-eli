@@ -64,7 +64,7 @@ const { name, startDate, endDate, fechatext, salon, direccion } = Astro.props;
           <div class="info-box" id="fecha">
             <h6>Día</h6>
             <p>{fechatext}</p>
-            <a href="#" class="boton addeventatc" id="addeventatc1" title="" aria-haspopup="true" aria-expanded="false" tabindex="0" translate="no" data-loaded="true" style="visibility: visible; z-index: 2;">
+            <a href="#" class="boton boton--azul addeventatc" id="addeventatc1" title="" aria-haspopup="true" aria-expanded="false" tabindex="0" translate="no" data-loaded="true" style="visibility: visible; z-index: 2;">
               <span class="nameBtn atc_node notranslate">Agendar</span>
 
               <span class="start atc_node notranslate">{startDate}</span>
@@ -79,13 +79,13 @@ const { name, startDate, endDate, fechatext, salon, direccion } = Astro.props;
           <div class="info-box" id="confirmar-asistencia">
             <h6>Lugar</h6>
             <p>{salon}</p>
-            <a href="#" data-evento="Fiesta" class="boton confirmar-asistencia">Confirmar asistencia</a>
+            <a href="#" data-evento="Fiesta" class="boton boton--azul confirmar-asistencia">Confirmar asistencia</a>
           </div>
 
           <div class="info-box" id="direccion">
             <h6>Dirección</h6>
             <p>{direccion}</p>
-            <a href="#" data-evento="Fiesta" class="boton modal-como-llegar">¿Cómo llegar?</a>
+            <a href="#" data-evento="Fiesta" class="boton boton--azul modal-como-llegar">¿Cómo llegar?</a>
           </div>
         </div>
       </div>
