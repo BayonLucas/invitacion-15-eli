@@ -7,17 +7,13 @@ const { nroWhatsapp } = Astro.props;
 
 <div id="modalAsistencia" class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-md modal-dialog-centered">
-
     <div class="modal-content">
-
       <div class="modal-content-2">
-
         <picture>
           <source type="image/webp" srcset="/flores_Grupo04_A.webp">
           <source type="image/png" srcset="/flores_Grupo04_A.png">
           <img class="adorno adorno-1 aos-init aos-animate" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000" data-aos-once="false" src="/flores_Grupo04_A.png" alt="" loading="lazy">
         </picture>
-
 
         <picture>
           <source type="image/webp" srcset="/flores_Grupo04_B.webp">
@@ -26,15 +22,12 @@ const { nroWhatsapp } = Astro.props;
         </picture>
 
         <div class="img-top-modal d-flex justify-content-center align-items-start">
-
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
+            <span inert>×</span>
           </button>
-
           <div class="white-circle-icon">
             <img class="" src="/img_circuloFiesta.svg" alt="">
           </div>
-
         </div>
 
         <div class="modal-header">
@@ -42,30 +35,26 @@ const { nroWhatsapp } = Astro.props;
         </div>
 
         <div class="modal-body">
-
-
           <div class="formulario-content">
-
             <form id="formAsistencia" action="">
-
-
               <div class="form-group d-flex justify-content-around custom-control custom-radio custom-control-inline">
-                <div class="form-check">
-                  <input class="form-check-input custom-control-input" type="radio" name="asistencia" id="1" value="Si" checked="">
-                  <label class="form-check-label custom-control-label" for="1">
-                    ¡Sí, confirmo!                  </label>
+                <div class="form-check ps-0">
+                  <input class="custom-control-input" type="radio" name="asistencia" id="1" value="Si" checked="">
+                  <label class="custom-control-label" for="1">
+                    ¡Sí, confirmo!
+                  </label>
                 </div>
-                <div class="form-check">
+                <div class="form-check ps-0">
                   <input class="custom-control-input" type="radio" name="asistencia" id="2" value="No">
                   <label class="custom-control-label" for="2">
-                    No puedo :(                  </label>
+                    No puedo :(
+                  </label>
                 </div>
               </div>
 
               <div class="form-group">
                 <input type="text" class="form-control" id="nombreAsistente" name="nombre" placeholder="Ingrese su nombre completo">
               </div>
-
 
               <div class="form-group">
                 <textarea id="comentariosAsistente" class="form-control" name="comentarios" rows="2" placeholder="Ingrese algún dato importante. Ej: Soy vegetariano"></textarea>
@@ -78,11 +67,8 @@ const { nroWhatsapp } = Astro.props;
               <input type="hidden" name="country" value="ar">
 
             </form>
-
           </div>
-
           <div class="msj-content d-flex flex-column justify-content-center"></div>
-
         </div>
 
         <div class="modal-footer">
@@ -91,8 +77,6 @@ const { nroWhatsapp } = Astro.props;
 
       </div>
     </div>
-
-
   </div>
 </div>
 
@@ -195,12 +179,11 @@ ${datos.get('comentarios') ? `💬 *Comentarios:* ${datos.get('comentarios')}` :
         $('#modalAsistencia .modal-footer, #modalAsistencia h5').hide();
 
         // 3. Mostrar el mensaje de éxito con un BOTÓN DE CIERRE
-        // Usamos una clase de Bootstrap (btn-primary) o la que uses en tu proyecto
         $('#modalAsistencia .msj-content').html(`
             <div class="text-center">
                 <h5 class="mb-3">¡Asistencia informada!</h5>
                 <p>Tu mensaje se ha generado correctamente. Si no se abrió WhatsApp, intenta de nuevo.</p>
-                <button type="button" id="btnCerrarExito" class="btn btn-primary mt-3">Entendido</button>
+                <button type="button" id="btnCerrarExito" class="boton">Cerrar</button>
             </div>
         `).show();
 
@@ -208,13 +191,10 @@ ${datos.get('comentarios') ? `💬 *Comentarios:* ${datos.get('comentarios')}` :
     }
 });
 
-// --- NUEVO EVENTO: Para el botón de cierre que creamos dinámicamente ---
 $('body').on('click', '#btnCerrarExito', function() {
-    // Cerramos el modal
     //@ts-ignore
     $('#modalAsistencia').modal('hide');
 
-    // IMPORTANTE: Dejamos el modal listo para la próxima vez (por si se equivocó de nombre)
     setTimeout(function() {
       //@ts-ignore
       $('#formAsistencia')[0].reset();
@@ -222,6 +202,6 @@ $('body').on('click', '#btnCerrarExito', function() {
       $('#modalAsistencia .modal-footer, #modalAsistencia h5').show();
       $('#modalAsistencia .msj-content').html('').hide();
       $('#modalAsistencia .modal-body').removeClass('fix-height');
-    }, 500); // Esperamos a que termine la animación de cierre del modal
+    }, 500); 
 });
 </script>
