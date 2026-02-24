@@ -39,14 +39,14 @@ const { nroWhatsapp } = Astro.props;
             <form id="formAsistencia" action="">
               <div class="form-group d-flex justify-content-around custom-control custom-radio custom-control-inline">
                 <div class="form-check ps-0">
-                  <input class="custom-control-input" type="radio" name="asistencia" id="1" value="Si" checked="">
-                  <label class="custom-control-label" for="1">
+                  <input type="radio" name="asistencia" id="asistencia-si" value="Si" checked="">
+                  <label for="asistencia-si">
                     ¡Sí, confirmo!
                   </label>
                 </div>
                 <div class="form-check ps-0">
-                  <input class="custom-control-input" type="radio" name="asistencia" id="2" value="No">
-                  <label class="custom-control-label" for="2">
+                  <input type="radio" name="asistencia" id="asistencia-no" value="No">
+                  <label for="asistencia-no">
                     No puedo :(
                   </label>
                 </div>
