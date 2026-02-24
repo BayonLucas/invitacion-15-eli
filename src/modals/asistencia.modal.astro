@@ -63,8 +63,7 @@ const { nroWhatsapp } = Astro.props;
               <input id="eventoAsistencia" type="hidden" name="evento" value="">
               <input type="hidden" name="invitacion" value="">
               <input type="hidden" name="token" value="">
-              <input type="hidden" name="lang" value="es">
-              <input type="hidden" name="country" value="ar">
+              <input type="hidden" name="wp" value={nroWhatsapp}>
 
             </form>
           </div>
@@ -163,8 +162,7 @@ $('body').on('click', '#sendAsistencia', function(e) {
 👤 *Nombre:* ${datos.get('nombre')}
 ${datos.get('comentarios') ? `💬 *Comentarios:* ${datos.get('comentarios')}` : ''}`.trim();
 
-        const numero = "5491141870588";
-        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+        const url = `https://wa.me/${datos.get('wp')}?text=${encodeURIComponent(mensaje)}`;
 
         // Abrir WhatsApp
         window.open(url, "_blank");

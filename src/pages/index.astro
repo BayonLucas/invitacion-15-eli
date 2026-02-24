@@ -33,6 +33,9 @@ const NUMERO_CUENTA = import.meta.env.SECRET_NUMERO_CUENTA;
 const CBU = import.meta.env.SECRET_CBU;
 const ALIAS = import.meta.env.SECRET_ALIAS;
 
+const NRO_ASISTENCIA = import.meta.env.SECRET_NRO_ASISTENCIA;
+const NRO_MUSICA = import.meta.env.SECRET_NRO_MUSICA;
+
 const TIP1 = "Si tenés alguna dieta especial o alergia (celiaquía, veganismo, etc.), te pedimos que nos avises antes del 15/4 inclusive para poder tenerlo en cuenta.";
 const TIP2 = "Vengan con el celu cargado… ¡quiero muchas fotos y recuerdos con ustedes!";
 const TIP3 = "Y lo más importante: vení con ganas de bailar, reír y disfrutar una noche inolvidable junto a amigos.";
@@ -93,7 +96,7 @@ const DRESSCODE_H2 = "(No usar Azul/Azul noche)"
 	/>
 	<MapaModal />
 	<AsistenciaModal 
-		nroWhatsapp=''
+		nroWhatsapp={NRO_ASISTENCIA}'
 	/>
 
 
