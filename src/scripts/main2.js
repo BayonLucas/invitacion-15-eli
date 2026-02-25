@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 1. Plugins estáticos
     Countdown.init();
-    MusicPlayer.init();
+    // MusicPlayer.init();
     Forms.init();
     
     // 2. Animaciones Lottie
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             AOS.init({ duration: 1000, once: true });
-            $('#modalMusica').modal({ backdrop: 'static' });
+            // $('#modalMusica').modal({ backdrop: 'static' });
         }, 100);
         
         setTimeout(() => {
