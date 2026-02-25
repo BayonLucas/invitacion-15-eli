@@ -27,7 +27,6 @@ const getParallaxImages = () => {
  * 2. UTILIDADES DE APOYO
  */
 const Utils = {
-    // Inicializador de animaciones Lottie (Bodymovin)
     initLottie: (selector, path, autoplay = true) => {
         const container = document.querySelector(selector);
         if (!container) return null;
@@ -40,7 +39,6 @@ const Utils = {
         });
     },
     
-    // Validador de URL
     isUrl: (string) => {
         try { return Boolean(new URL(string)); } 
         catch (e) { return false; }
@@ -55,7 +53,6 @@ const Utils = {
 /**
  * 3. MÓDULOS DE FUNCIONALIDAD
  */
-
 const Countdown = {
     init: () => {
         const targetDate = new Date(CONFIG.fechaFestejo).getTime();
