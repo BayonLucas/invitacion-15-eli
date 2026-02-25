@@ -75,8 +75,47 @@ const { titular, nroCuenta, cbu, alias } = Astro.props as Props;
                 <div class="modal-body">
                     <p>Titular: {titular}</p>
                     <!-- <p>Número de Cuenta: {nroCuenta}</p> -->
-                    <p>CBU: {cbu}</p>
-                    <p>Alias: {alias}</p>
+                    <div class="d-flex flex-row justify-content-center mb-2">
+                        <p class="m-0">CBU: {cbu}</p>
+                        <button class="btn-copiar p-0 mx-2" data-text={cbu} aria-label="Copiar CBU">
+                            <!-- Icono copiar -->
+                            <svg class="icon-copy" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="currentColor"
+                                d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1zm3 4H8c-1.1 
+                                0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 
+                                0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 
+                                16H8V7h11v14z"/>
+                            </svg>
+
+                            <!-- Icono check -->
+                            <svg class="icon-check" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="currentColor"
+                                d="M9 16.2l-3.5-3.5L4 
+                                14.2l5 5 12-12-1.5-1.5z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="d-flex flex-row justify-content-center mb-2">
+                        <p class="m-0">Alias: {alias}</p>
+                        <button class="btn-copiar p-0 mx-2" data-text={alias} aria-label="Copiar Alias">
+                            <!-- Icono copiar -->
+                            <svg class="icon-copy" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="currentColor"
+                                d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1zm3 4H8c-1.1 
+                                0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 
+                                0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 
+                                16H8V7h11v14z"/>
+                            </svg>
+
+                            <!-- Icono check -->
+                            <svg class="icon-check" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="currentColor"
+                                d="M9 16.2l-3.5-3.5L4 
+                                14.2l5 5 12-12-1.5-1.5z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="modal-footer"></div>
@@ -84,3 +123,65 @@ const { titular, nroCuenta, cbu, alias } = Astro.props as Props;
         </div>
     </div>
 </div>
+
+
+<style>
+    .dato-copiable {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-copiar {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding: 6px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        color: #d4af37; /* dorado invitación */
+    }
+
+    .btn-copiar:hover {
+        background: rgba(212, 175, 55, 0.15);
+    }
+
+    .icon-check {
+        display: none;
+    }
+
+    .btn-copiar.copiado .icon-copy {
+        display: none;
+    }
+
+    .btn-copiar.copiado .icon-check {
+        display: block;
+        color: #4caf50;
+    }
+</style>
+
+<script>
+  document.addEventListener("click", async (e) => {
+    //@ts-ignore
+    const button = e.target.closest(".btn-copiar");
+    if (!button) return;
+
+    const text = button.dataset.text;
+    if (!text) return;
+
+    try {
+      await navigator.clipboard.writeText(text);
+
+      button.classList.add("copiado");
+
+      setTimeout(() => {
+        button.classList.remove("copiado");
+      }, 2000);
+
+    } 
+    catch (err) {
+      console.error("Error al copiar", err);
+    }
+  });
+
+</script>
