@@ -17,6 +17,7 @@ import TipsModal from '../modals/tips.modal.astro';
 import VestuarioModal from '@/modals/vestuario.modal.astro';
 import MapaModal from '@/modals/mapa.modal.astro';
 import AsistenciaModal from '@/modals/asistencia.modal.astro';
+import SugerirCancionModal from '@/modals/sugerirCancion.modal.astro';
 
 const NAME = "Elizabeth";
 const FECHA_TEXT = "Domingo 24 de Mayo - 21hs a 5hs";
@@ -97,6 +98,9 @@ const DRESSCODE_H2 = "(No usar Azul/Azul noche)"
 	<MapaModal />
 	<AsistenciaModal 
 		nroWhatsapp={NRO_ASISTENCIA}'
+	/>
+	<SugerirCancionModal 
+		nroWhatsapp={NRO_MUSICA}
 	/>
 
 

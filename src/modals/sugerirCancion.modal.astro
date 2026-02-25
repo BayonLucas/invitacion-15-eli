@@ -1,3 +1,10 @@
+---
+interface Props {
+  nroWhatsapp: string;
+}
+const { nroWhatsapp } = Astro.props;
+---
+
 <div id="modalSugerirCancion" class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-md modal-dialog-centered">
     <div class="modal-content">
@@ -9,16 +16,13 @@
           <img class="adorno adorno-1 aos-init aos-animate" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000" data-aos-once="false" src="/flores_Grupo04_A.png" alt="" loading="lazy">
         </picture>
 
-
         <picture>
           <source type="image/webp" srcset="/flores_Grupo04_B.webp">
           <source type="image/png" srcset="/flores_Grupo04_B.png">
           <img class="adorno adorno-2 aos-init aos-animate" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000" data-aos-once="false" src="/flores_Grupo04_B.png" alt="" loading="lazy">
         </picture>
 
-
         <div class="img-top-modal d-flex justify-content-center align-items-start">
-
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
@@ -26,22 +30,15 @@
           <div class="white-circle-icon">
             <img class="" src="/img_circuloCanciones.svg" alt="">
           </div>
-
-
         </div>
 
         <div class="modal-header">
-
           <h5 class="modal-title">Sugerir Canción</h5>
-
         </div>
 
         <div class="modal-body">
-
           <div class="formulario-content">
-
             <form id="formSugerirCancion" action="">
-
               <div class="form-group">
                 <input type="text" class="form-control" id="nombreSugerencia" name="nombre" placeholder="Tu nombre">
               </div>
@@ -54,18 +51,13 @@
                 <input type="text" class="form-control" id="linkSugerencia" name="link" placeholder="Si lo desea ingrese el link de YouTube, Spotify, etc.">
               </div>
 
-
               <input type="hidden" name="invitacion" value="">
               <input type="hidden" name="token" value="">
-              <input type="hidden" name="lang" value="es">
-              <input type="hidden" name="country" value="ar">
-
+              <input type="hidden" name="wp-sugerencia" value={nroWhatsapp}>
             </form>
-
           </div>
 
           <div class="msj-content d-flex flex-column justify-content-center"></div>
-
         </div>
 
         <div class="modal-footer">
@@ -76,3 +68,130 @@
     </div>
   </div>
 </div>
+
+
+<script>
+
+  const is_url = function(url:any): Boolean {
+    try { return Boolean(new URL(url)); } 
+    catch (e) { return false; }
+  }
+
+
+  function isOkSugerirCancion() {
+    $("#error-form").remove();
+    var flag = true;
+    var err = '';
+
+    //@ts-ignore
+    var sugerenciaName = $("#nombreSugerencia").val().trim();
+    //@ts-ignore
+    var sugerenciaDescription = $("#descripcionSugerencia").val().trim();
+    //@ts-ignore
+    var sugerenciaLink = $("#linkSugerencia").val().trim();
+
+    // Descripcion
+    if (sugerenciaDescription == '') {
+      flag = false;
+      err = "Es necesario ingresar el nombre de la canción y su autor para que pueda encontrarla.";
+    } 
+    else if (sugerenciaDescription.length > 50)
+    {
+      flag = false;
+      err = "El campo de descripción no puede superar los 50 caracteres.";
+    }
+    
+    // Link
+    if (sugerenciaLink != '') {
+      if (!is_url(sugerenciaLink)) {
+        flag = false;
+        err = "El link ingresado no es válido.";
+      }
+      if (sugerenciaLink.length > 250) {
+        flag = false;
+        err = "El link no puede superar los 250 caracteres.";
+      }
+    }
+
+    // Nombre
+    if (sugerenciaName == '') {
+      flag = false;
+      err = "Es necesario ingresar tu nombre.";
+    } else if (sugerenciaName.length > 20) {
+        flag = false;
+        err = "El nombre no puede superar los 20 caracteres.";
+    }
+
+    // Si hay error
+    if (flag === false) {
+      $('#formSugerirCancion').after('<span id="error-form">' + err + '</span>');
+    }
+
+    // Retorno el estado de la validacion
+    return flag;
+  }
+
+  $('body').on('click', '#sendSugerenciaCancion', function(e) {
+    e.preventDefault();
+
+    if (isOkSugerirCancion()){
+      const $btn = $("#sendSugerenciaCancion");
+      const textoOriginal = $btn.text();
+      
+      $btn.text("Abriendo WhatsApp...").prop("disabled", true);
+
+      var formulario = $("#formSugerirCancion")[0];
+      // @ts-ignore
+      var datos = new FormData(formulario);
+
+      const nombre = datos.get('nombre') || 'Invitado';
+      const cancion = datos.get('descripcion') || 'No especificada';
+      const link = datos.get('link') || '';
+      const mensaje = `
+*🎶 ¡Sugerencia musical para el 15! 🎶*
+
+👤 *De:* ${nombre}
+🎵 *Canción:* ${cancion}
+${link ? `🔗 *Link:* ${link}` : ''}
+
+¡Espero que suene en la pista! 💃🕺`.trim();
+
+
+      const url = `https://wa.me/${datos.get('wp-sugerencia')}?text=${encodeURIComponent(mensaje)}`;
+
+      window.open(url, "_blank");
+      $btn.text(textoOriginal).prop("disabled", false);
+
+      $('#formSugerirCancion').hide(); 
+      $('#modalSugerirCancion .modal-footer, #modalSugerirCancion h5').hide();
+
+      $('#modalSugerirCancion .msj-content').html(`
+          <div class="text-center">
+              <h5 class="mb-3">¡Sugerencia enviada!</h5>
+              <p>Tu mensaje se ha generado correctamente. Si no se abrió WhatsApp, intenta de nuevo.</p>
+              <button type="button" id="btnCerrarExito" class="boton boton--azul">Cerrar</button>
+          </div>
+      `).show();
+
+      $('#modalSugerirCancion .modal-body').addClass('fix-height');
+    }
+  });
+    
+    
+  $('body').on('click', '#btnCerrarExito', function() {
+    //@ts-ignore
+    $('#modalSugerirCancion').modal('hide');
+    
+    setTimeout(function() {
+      //@ts-ignore
+      $('#formSugerirCancion')[0].reset();
+      $('#formSugerirCancion').show();
+      $('#modalSugerirCancion .modal-footer, #modalSugerirCancion h5').show();
+      $('#modalSugerirCancion .msj-content').html('').hide();
+      $('#modalSugerirCancion .modal-body').removeClass('fix-height');
+    }, 500); 
+  });
+
+
+
+</script>
