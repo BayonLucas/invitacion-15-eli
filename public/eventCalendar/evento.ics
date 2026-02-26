@@ -4,9 +4,9 @@ PRODID:-//Invitacion 15 Elizabeth//Astro//ES
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:elizabeth-15-20260524@invitacion.com
-DTSTAMP:;TZID=America/Argentina/Buenos_Aires:20260524090000
-DTSTART:;TZID=America/Argentina/Buenos_Aires:20260524090000
-DTEND:;TZID=America/Argentina/Buenos_Aires:20260525050000
+DTSTAMP:20260225T120000Z
+DTSTART;TZID=America/Argentina/Buenos_Aires:20260524T090000
+DTEND;TZID=America/Argentina/Buenos_Aires:20260525T050000
 SUMMARY:Elizabeth - Mis 15 años 🎉
 DESCRIPTION:Te espero para celebrar mis 15 años.\n\nSalón Jano's San Telmo Boutique\nMéxico 334, C1097 Cdad. Autónoma de Buenos Aires\n\nVer ubicación:\nhttps://maps.app.goo.gl/HnweR39V4qJx9imu7
 LOCATION:Salón Jano's San Telmo Boutique - México 334, C1097 Cdad. Autónoma de Buenos Aires
