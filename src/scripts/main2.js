@@ -30,13 +30,25 @@ const Utils = {
     initLottie: (selector, path, autoplay = true) => {
         const container = document.querySelector(selector);
         if (!container) return null;
-        return bodymovin.loadAnimation({
-            wrapper: container,
-            animType: 'svg',
-            loop: true,
-            autoplay: autoplay,
-            path: path
+    const anim = bodymovin.loadAnimation({
+        container: container, // mejor usar "container"
+        renderer: 'svg',
+        loop: true,
+        autoplay: autoplay,
+        path: path
+    });
+
+    anim.addEventListener('DOMLoaded', () => {
+        const filters = container.querySelectorAll('filter');
+        filters.forEach(f => {
+            f.setAttribute('x', '-50%');
+            f.setAttribute('y', '-50%');
+            f.setAttribute('width', '200%');
+            f.setAttribute('height', '200%');
         });
+    });
+
+    return anim;
     },
     
     isUrl: (string) => {
